@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <nav className="bg-white-800">
-      <div className="w-full px-2 h-16 flex items-center justify-between sm:px-6 lg:px-8">
+      <div className="relative w-full px-2 h-16 flex items-center justify-between sm:px-6 lg:px-8">
         {/*  Mobile hamburger / close icon */}
         <div className="sm:hidden">
           <i
@@ -62,7 +62,9 @@ const NavBar = () => {
       </div>
       {/* mobile menu (only show on small screens) */}
       <div
-        className={`p-2 mx-2 border ${showMenu ? "block" : "hidden"} sm:hidden`}
+        className={`absolute left-0 z-10 p-2 mx-2 border bg-white ${
+          showMenu ? "block" : "hidden"
+        } sm:hidden`}
       >
         <div className="flex flex-col space-y-1">
           {navigation.map((item) => (
