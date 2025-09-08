@@ -2,13 +2,15 @@ import React from "react";
 
 interface Props {
   name: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: () => void;
   isPrimary: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
-const Button = ({ name, onClick, isPrimary }: Props) => {
+const Button = ({ name, onClick, isPrimary, type = "button" }: Props) => {
   return (
     <button
+      type={type}
       className={`px-2 py-1 rounded-sm ${
         isPrimary
           ? "bg-sky-600 text-white hover:bg-sky-500"
