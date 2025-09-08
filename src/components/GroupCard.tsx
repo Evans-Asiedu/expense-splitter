@@ -11,7 +11,7 @@ const GroupCard = () => {
       />
       <div className="flex justify-between sm:block">
         <div className="text-sm sm:mb-3">
-          <span>12 expenses</span> <span>$1000</span>
+          <span className="mr-2">12 expenses</span> <span>3 members</span>
           <h2 className="font-bold text-lg">Household</h2>
         </div>
         <Button

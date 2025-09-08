@@ -7,7 +7,7 @@ interface Props {
 
 const SearchBar = ({ value, onChange }: Props) => {
   return (
-    <div className="relative">
+    <div className="relative mb-5">
       <input
         id="search"
         name="search"
