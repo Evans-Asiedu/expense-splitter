@@ -1,0 +1,26 @@
+import React from "react";
+
+interface Props {
+  value: string;
+  onChange?: () => void;
+}
+
+const SearchBar = ({ value, onChange }: Props) => {
+  return (
+    <div className="relative">
+      <input
+        id="search"
+        name="search"
+        value={value}
+        onChange={onChange}
+        type="text"
+        className="w-full mx-2 px-10 py-2 rounded-md bg-gray-200 outline-0 focus:outline-2 focus:outline-sky-500"
+      />
+      <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400">
+        <i className="fa fa-search" aria-hidden="true"></i>
+      </span>
+    </div>
+  );
+};
+
+export default SearchBar;

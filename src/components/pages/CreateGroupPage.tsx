@@ -1,6 +1,6 @@
 import React from "react";
 
-import GroupForm from "../components/GroupForm";
+import GroupForm from "../GroupForm";
 
 const CreateGroupPage = () => {
   return (

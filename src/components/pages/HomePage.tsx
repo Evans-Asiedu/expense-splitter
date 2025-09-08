@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Banner from "../components/Banner";
-import CardList from "../components/CardList";
+import NavBar from "../NavBar";
+import Banner from "../Banner";
+import CardList from "../CardList";
 
 const HomePage = () => {
   return (
