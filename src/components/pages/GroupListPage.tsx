@@ -1,11 +1,12 @@
 import React from "react";
 import SearchBar from "../SearchBar";
 import GroupCard from "../GroupCard";
+import Header from "../Header";
 
 const GroupListPage = () => {
   return (
     <div className="w-5/6 mx-auto">
-      <div>Group Details</div>
+      <Header title="Your Groups" />
       <SearchBar value={""} onChange={() => {}} />
       <GroupCard />
     </div>
