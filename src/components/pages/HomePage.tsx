@@ -1,4 +1,3 @@
-import React from "react";
 import NavBar from "../NavBar";
 import Banner from "../Banner";
 import CardList from "../CardList";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import GroupForm from "../GroupForm";
 import Header from "../Header";
 
