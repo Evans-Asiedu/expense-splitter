@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 const Banner = () => {
   return (
     <div className="w-full">
@@ -16,9 +18,12 @@ const Banner = () => {
             Splitit helps you share expenses with friends, roommates and family.
             Keep track of who owes you what
           </p>
-          <button className="px-4 py-2 rounded-md text-md bg-sky-600 text-white hover:bg-sky-500 hover:cursor-pointer">
-            Get Started
-          </button>
+          <Button
+            name="Get Started"
+            isPrimary={true}
+            type="button"
+            onClick={() => {}}
+          />
         </div>
       </div>
     </div>
