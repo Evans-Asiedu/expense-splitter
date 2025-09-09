@@ -2,7 +2,7 @@ import React from "react";
 
 interface Props {
   value: string;
-  onChange?: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SearchBar = ({ value, onChange }: Props) => {
