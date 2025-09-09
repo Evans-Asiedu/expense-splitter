@@ -1,6 +1,7 @@
 import type { Group } from "../models/GroupModels";
+import { data } from "../data/data";
 
-let groups: Group[] = [];
+let groups: Group[] = data;
 
 export function getGroups(): Group[] {
   return groups;
