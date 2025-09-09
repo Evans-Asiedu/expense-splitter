@@ -3,14 +3,23 @@ interface Props {
   onClick?: () => void;
   isPrimary: boolean;
   type?: "button" | "submit" | "reset";
+  color?: string;
 }
 
-const Button = ({ name, onClick, isPrimary, type = "button" }: Props) => {
+const Button = ({
+  name,
+  onClick,
+  isPrimary,
+  color,
+  type = "button",
+}: Props) => {
   return (
     <button
       type={type}
-      className={`px-2 py-1 rounded-sm ${
-        isPrimary
+      className={` px-2 py-1 rounded-sm ${
+        color
+          ? color
+          : isPrimary
           ? "bg-sky-600 text-white hover:bg-sky-500"
           : "bg-gray-300 text-black hover:bg-gray-500"
       }`}

@@ -21,12 +21,21 @@ const GroupCard = ({ group }: GroupProps) => {
           <span>{participantList.length} members</span>
           <h2 className="font-bold text-lg">{name}</h2>
         </div>
-        <Button
-          name="view details"
-          isPrimary={false}
-          onClick={() => {}}
-          type="button"
-        />
+        <div className="flex gap-2">
+          <Button
+            name="view details"
+            isPrimary={false}
+            onClick={() => {}}
+            type="button"
+          />
+          <Button
+            name="Delete"
+            onClick={() => {}}
+            isPrimary={true}
+            color="bg-red-500 hover:bg-red-600"
+            type="button"
+          />
+        </div>
       </div>
     </div>
   );
