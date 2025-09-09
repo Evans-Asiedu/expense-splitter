@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
-import GroupCard from "../GroupCard";
 import Header from "../Header";
 import { getGroups } from "../../services/GroupService";
 import type { Group } from "../../models/GroupModels";
+import GroupList from "../GroupList";
 
 const GroupListPage = () => {
   const [groups, setGroups] = useState<Group[]>([]);
@@ -17,11 +17,7 @@ const GroupListPage = () => {
     <div className="w-5/6 mx-auto">
       <Header title="Your Groups" />
       <SearchBar value={""} onChange={() => {}} />
-      <div>
-        {groups.map((group) => (
-          <GroupCard key={group.id} group={group} />
-        ))}
-      </div>
+      <GroupList groups={groups} />
     </div>
   );
 };
