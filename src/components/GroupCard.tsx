@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import type { Group } from "../models/GroupModels";
 
@@ -8,6 +8,13 @@ interface GroupProps {
 
 const GroupCard = ({ group }: GroupProps) => {
   const { imageUrl, expenseList, participantList, name } = group;
+  const [showDialog, setShowDialog] = useState<boolean>(false);
+
+  const handleDelete = () => {
+    console.log("deleting group");
+    setShowDialog(false);
+  };
+
   return (
     <div className="w-full p-2 outline-1 outline-gray-400 rounded-md sm:flex flex-row-reverse justify-between mb-4">
       <img
@@ -30,13 +37,40 @@ const GroupCard = ({ group }: GroupProps) => {
           />
           <Button
             name="Delete"
-            onClick={() => {}}
+            onClick={() => setShowDialog(true)}
             isPrimary={true}
             color="bg-red-500 hover:bg-red-600"
             type="button"
           />
         </div>
       </div>
+
+      {/* Confirmation Popup */}
+      {showDialog && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
+          <div className="bg-white p-4 rounded-md shadow-md w-64 text-center">
+            <p className="mb-4 font-medium">
+              Are you sure you want to delete <br />{" "}
+              <span className="font-bold">{name}</span>?
+            </p>
+            <div className="flex justify-around">
+              <Button
+                name="Cancel"
+                isPrimary={false}
+                onClick={() => setShowDialog(false)}
+                type="button"
+              />
+              <Button
+                name="Yes, Delete"
+                isPrimary={true}
+                color="bg-red-500 hover:bg-red-600"
+                onClick={handleDelete}
+                type="button"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
