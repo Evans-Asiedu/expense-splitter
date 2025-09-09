@@ -47,7 +47,7 @@ const GroupCard = ({ group }: GroupProps) => {
 
       {/* Confirmation Popup */}
       {showDialog && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-500/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500/75">
           <div className="bg-white p-4 rounded-md shadow-md w-64 text-center">
             <p className="mb-4 font-medium">
               Are you sure you want to delete <br />{" "}
