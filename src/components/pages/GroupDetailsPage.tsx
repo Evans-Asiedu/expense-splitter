@@ -5,7 +5,7 @@ import TabView from "../TabView";
 
 const GroupDetailsPage = () => {
   return (
-    <div className="w-5/6 mx-auto">
+    <div className="w-5/6 mx-auto mt-3">
       <div className="flex justify-between">
         <Header title="New Zealand Trip" />
         <Button name="Settle up" isPrimary={false} type="button" />
