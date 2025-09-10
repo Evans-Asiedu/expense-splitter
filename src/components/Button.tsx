@@ -16,7 +16,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={` px-2 py-1 rounded-sm ${
+      className={`px-2 py-1 rounded-sm ${
         color
           ? color
           : isPrimary

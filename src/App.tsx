@@ -1,11 +1,13 @@
 import NavBar from "./components/NavBar";
-import GroupListPage from "./components/pages/GroupListPage";
+import GroupDetailsPage from "./components/pages/GroupDetailsPage";
+// import GroupListPage from "./components/pages/GroupListPage";
+// import HomePage from "./components/pages/HomePage";
 
 function App() {
   return (
     <>
       <NavBar />
-      <GroupListPage />
+      <GroupDetailsPage />
     </>
   );
 }
