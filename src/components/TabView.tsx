@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ParticipantCard from "./ParticipantCard";
 
 type Tab = "participants" | "expenses" | "summary";
 
@@ -6,7 +7,12 @@ const TabView = () => {
   const [activeTab, setActiveTab] = useState<Tab>("participants");
 
   const renderTabContent = () => {
-    if (activeTab === "participants") return <div>Show ParticipantList</div>;
+    if (activeTab === "participants")
+      return (
+        <div>
+          <ParticipantCard />
+        </div>
+      );
 
     if (activeTab === "expenses") return <div>Show Group Expenses</div>;
 
