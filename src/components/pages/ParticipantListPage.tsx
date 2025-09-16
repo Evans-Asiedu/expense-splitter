@@ -2,15 +2,23 @@
 import ParticipantCard from "../ParticipantCard";
 import type { Participant } from "../../models/GroupModels";
 import { getParticipants } from "../../services/ParticipantService";
+import Button from "../Button";
 
-const ParticipantListPage = () => {
-  const participants: Participant[] = getParticipants("g1");
+interface Props {
+  groupId: string;
+}
+
+const ParticipantListPage = ({ groupId }: Props) => {
+  const participants: Participant[] = getParticipants(groupId);
 
   return (
     <div>
       {participants.map((participant) => (
         <ParticipantCard key={participant.id} participant={participant} />
       ))}
+      <div className="fixed bottom-2 right-16 m-4">
+        <Button name="Add a participant" onClick={() => {}} isPrimary={false} />
+      </div>
     </div>
   );
 };

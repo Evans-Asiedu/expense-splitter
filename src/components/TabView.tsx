@@ -3,14 +3,18 @@ import ParticipantListPage from "./pages/ParticipantListPage";
 
 type Tab = "participants" | "expenses" | "summary";
 
-const TabView = () => {
+interface Props {
+  groupId: string;
+}
+
+const TabView = ({ groupId }: Props) => {
   const [activeTab, setActiveTab] = useState<Tab>("participants");
 
   const renderTabContent = () => {
     if (activeTab === "participants")
       return (
         <div>
-          <ParticipantListPage />
+          <ParticipantListPage groupId={groupId} />
         </div>
       );
 
