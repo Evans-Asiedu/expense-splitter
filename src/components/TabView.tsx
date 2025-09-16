@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ParticipantCard from "./ParticipantCard";
+import ParticipantListPage from "./pages/ParticipantListPage";
 
 type Tab = "participants" | "expenses" | "summary";
 
@@ -10,7 +10,7 @@ const TabView = () => {
     if (activeTab === "participants")
       return (
         <div>
-          <ParticipantCard />
+          <ParticipantListPage />
         </div>
       );
 

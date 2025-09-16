@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import type { Participant } from "./../models/GroupModels";
 
-const ParticipantCard = () => {
-  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+interface Props {
+  participant: Participant;
+}
+
+const ParticipantCard = ({ participant }: Props) => {
+  const [isAdmin] = useState<boolean>(false);
+  const { name, overallStatus, totalAmountPaid, totalAmountToPay } =
+    participant;
 
   return (
     <div className="flex gap-3 justify-between mt-2">
@@ -13,12 +20,14 @@ const ParticipantCard = () => {
         />
       </div>
       <div>
-        <p className="font-semibold">Jen</p>
-        <p className="text-md text-gray-500">2 expenses, $1000</p>
+        <p className="font-semibold">{name}</p>
+        <p className="text-md text-gray-500">
+          2 expenses, ${totalAmountPaid - totalAmountToPay}
+        </p>
       </div>
       <div className="ml-auto">
         <span className="block mb-1 bg-gray-400 px-2 py-0.5 rounded-xl text-sm">
-          status
+          {overallStatus}
         </span>
         {isAdmin && (
           <span className="bg-green-400 px-2 py-0.5 rounded-xl text-sm">
