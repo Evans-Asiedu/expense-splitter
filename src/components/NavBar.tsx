@@ -48,7 +48,7 @@ const NavBar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className={`rounded-md px-3 py-1 font-medium ${
+                className={`rounded-xl px-3 py-1.5 font-medium ${
                   item.current
                     ? "bg-primary text-secondary-txt hover:bg-sky-500"
                     : "hover:bg-gray-300"
@@ -71,7 +71,7 @@ const NavBar = () => {
             <a
               key={item.name}
               href={item.href}
-              className={`rounded-md px-3 py-1 font-medium ${
+              className={`rounded-xl px-3 py-1 font-medium ${
                 item.current
                   ? "bg-primary text-secondary-txt hover:bg-sky-500"
                   : "hover:bg-gray-300"

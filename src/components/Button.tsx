@@ -16,12 +16,12 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`px-2 py-1 rounded-sm ${
+      className={`px-3 py-1.5 rounded-xl ${
         color
           ? color
           : isPrimary
-          ? "bg-sky-600 text-white hover:bg-sky-500"
-          : "bg-gray-300 text-black hover:bg-gray-500"
+          ? "bg-primary text-secondary-txt hover:bg-sky-500"
+          : "bg-seconary text-primary-text hover:bg-gray-500"
       }`}
       onClick={onClick}
     >
