@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ParticipantListPage from "./pages/ParticipantListPage";
 
 type Tab = "participants" | "expenses" | "summary";
@@ -26,7 +26,7 @@ const TabView = ({ groupId }: Props) => {
   return (
     <div>
       {/* Tab */}
-      <div className="flex border-b border-gray-300">
+      <div className="flex border-b border-gray-300 mb-2">
         <button
           className={`flex-1 py-2 ${
             activeTab === "participants"

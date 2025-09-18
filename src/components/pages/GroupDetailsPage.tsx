@@ -14,7 +14,7 @@ const GroupDetailsPage = ({ group }: Props) => {
     <div className="w-5/6 mx-auto mt-3">
       <div className="flex justify-between">
         <Header title={name} />
-        <Button name="Settle up" isPrimary={false} type="button" />
+        <Button name="settle  up" isPrimary={false} type="button" />
       </div>
       <div>
         <p className="font-semibold">{description}</p>

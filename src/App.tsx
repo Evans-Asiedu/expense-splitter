@@ -1,8 +1,6 @@
 import NavBar from "./components/NavBar";
-import CreateGroupPage from "./components/pages/CreateGroupPage";
-import GroupListPage from "./components/pages/GroupListPage";
-//import GroupDetailsPage from "./components/pages/GroupDetailsPage";
-//import HomePage from "./components/pages/HomePage";
+import GroupDetailsPage from "./components/pages/GroupDetailsPage";
+
 import type { Group } from "./models/GroupModels";
 import { getGroup } from "./services/GroupService";
 // import GroupListPage from "./components/pages/GroupListPage";
@@ -15,9 +13,9 @@ function App() {
 
   return (
     <>
-      <div className="bg-background">
+      <div className="h-screen bg-background">
         <NavBar />
-        <CreateGroupPage />
+        <GroupDetailsPage group={group} />
       </div>
     </>
   );
