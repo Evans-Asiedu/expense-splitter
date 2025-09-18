@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "./Button";
 import type { Group } from "../models/GroupModels";
 
@@ -39,7 +39,7 @@ const GroupCard = ({ group }: GroupProps) => {
             name="Delete"
             onClick={() => setShowDialog(true)}
             isPrimary={true}
-            color="bg-red-500 hover:bg-red-600"
+            color="bg-red-300 hover:bg-red-400"
             type="button"
           />
         </div>
@@ -63,7 +63,7 @@ const GroupCard = ({ group }: GroupProps) => {
               <Button
                 name="Yes, Delete"
                 isPrimary={true}
-                color="bg-red-500 hover:bg-red-600"
+                color="bg-red-300 hover:bg-red-400"
                 onClick={handleDelete}
                 type="button"
               />

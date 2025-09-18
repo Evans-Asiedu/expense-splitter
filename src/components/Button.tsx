@@ -21,7 +21,7 @@ const Button = ({
           ? color
           : isPrimary
           ? "bg-primary text-secondary-txt hover:bg-sky-500"
-          : "bg-seconary text-primary-text hover:bg-gray-500"
+          : "bg-secondary text-primary-text hover:bg-gray-500"
       }`}
       onClick={onClick}
     >
