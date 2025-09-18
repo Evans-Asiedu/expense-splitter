@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
-import GroupDetailsPage from "./components/pages/GroupDetailsPage";
+//import GroupDetailsPage from "./components/pages/GroupDetailsPage";
+import HomePage from "./components/pages/HomePage";
 import type { Group } from "./models/GroupModels";
 import { getGroup } from "./services/GroupService";
 // import GroupListPage from "./components/pages/GroupListPage";
@@ -12,8 +13,10 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <GroupDetailsPage group={group} />
+      <div className="bg-background">
+        <NavBar />
+        <HomePage />
+      </div>
     </>
   );
 }

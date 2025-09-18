@@ -11,10 +11,10 @@ const Banner = () => {
         />
 
         <div className="absolute left-1/12 top-1/3 md:top-1/2">
-          <h2 className="text-white font-bold text-2xl sm:text-4xl md:text-6xl">
+          <h2 className="text-secondary-txt font-bold text-2xl sm:text-4xl md:text-6xl">
             Share and track group expenses
           </h2>
-          <p className="my-2 sm:my-3 text-white text-sm sm:text-xl md:text-md">
+          <p className="my-2 sm:my-3 text-secondary-txt text-sm sm:text-xl md:text-md">
             Splitit helps you share expenses with friends, roommates and family.
             Keep track of who owes you what
           </p>

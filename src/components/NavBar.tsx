@@ -11,7 +11,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="bg-white-800">
+    <nav>
       <div className="relative w-full px-2 h-16 flex items-center justify-between sm:px-6 lg:px-8">
         {/*  Mobile hamburger / close icon */}
         <div className="sm:hidden">
@@ -50,7 +50,7 @@ const NavBar = () => {
                 href={item.href}
                 className={`rounded-md px-3 py-1 font-medium ${
                   item.current
-                    ? "bg-sky-600 text-white hover:bg-sky-500"
+                    ? "bg-primary text-secondary-txt hover:bg-sky-500"
                     : "hover:bg-gray-300"
                 }`}
               >
@@ -62,7 +62,7 @@ const NavBar = () => {
       </div>
       {/* mobile menu (only show on small screens) */}
       <div
-        className={`absolute left-0 z-10 p-2 mx-2 border bg-white ${
+        className={`absolute left-0 z-10 p-2 mx-2 border bg-background ${
           showMenu ? "block" : "hidden"
         } sm:hidden`}
       >
@@ -73,7 +73,7 @@ const NavBar = () => {
               href={item.href}
               className={`rounded-md px-3 py-1 font-medium ${
                 item.current
-                  ? "bg-sky-600 text-white hover:bg-sky-500"
+                  ? "bg-primary text-secondary-txt hover:bg-sky-500"
                   : "hover:bg-gray-300"
               }`}
             >
