@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import CreateGroupPage from "./components/pages/CreateGroupPage";
 import GroupListPage from "./components/pages/GroupListPage";
 //import GroupDetailsPage from "./components/pages/GroupDetailsPage";
 //import HomePage from "./components/pages/HomePage";
@@ -16,7 +17,7 @@ function App() {
     <>
       <div className="bg-background">
         <NavBar />
-        <GroupListPage />
+        <CreateGroupPage />
       </div>
     </>
   );

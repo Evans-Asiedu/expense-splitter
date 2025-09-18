@@ -92,10 +92,10 @@ const GroupForm = () => {
             value={data.name}
             onChange={handleChange}
             placeholder="Enter group name"
-            className="py-1 px-2 block w-full rounded-md outline-1 outline-gray-300 placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:outline-sky-500"
+            className="py-1 px-2 block w-full rounded-md outline-1 outline-gray-300 placeholder:text-accent-txt placeholder:text-sm focus:outline-2 focus:outline-primary"
           />
           {error?.name == "name" && (
-            <div className="mt-1 w-full h-8 rounded-md bg-red-400 text-white text-sm flex items-center px-2">
+            <div className="mt-1 w-full h-8 rounded-md bg-error-400 text-secondary-txt text-sm flex items-center px-2">
               {error?.message}
             </div>
           )}
@@ -110,7 +110,7 @@ const GroupForm = () => {
             value={data.description}
             onChange={handleChange}
             placeholder="Say something about the group"
-            className="p-2 block w-full outline-1 outline-gray-300 rounded-md placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:outline-sky-500"
+            className="p-2 block w-full outline-1 outline-gray-300 rounded-md placeholder:text-accent-txt placeholder:text-sm focus:outline-2 focus:outline-primary"
           />
         </div>
 
@@ -125,10 +125,10 @@ const GroupForm = () => {
                 value={data.budget}
                 onChange={handleChange}
                 placeholder="Amount"
-                className="py-1 px-2 block w-full outline-1 outline-gray-300 rounded-md placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:outline-sky-500"
+                className="py-1 px-2 block w-full outline-1 outline-gray-300 rounded-md placeholder:text-accent-txt placeholder:text-sm focus:outline-2 focus:outline-primary"
               />
               {error?.name == "budget" && (
-                <div className="mt-1 w-full h-8 rounded-md bg-red-400 text-white text-sm flex items-center px-2">
+                <div className="mt-1 w-full h-8 rounded-md bg-error-400 text-secondary-txt text-sm flex items-center px-2">
                   {error?.message}
                 </div>
               )}
@@ -140,7 +140,7 @@ const GroupForm = () => {
               <select
                 name="currencies"
                 id="currencies"
-                className="p-1 block w-full outline-1 outline-gray-300 rounded-md focus:outline-2 focus:outline-sky-500"
+                className="p-1 block w-full outline-1 outline-gray-300 rounded-md focus:outline-2 focus:outline-primary"
                 value={data.currencey}
                 onChange={handleChange}
               >
