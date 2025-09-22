@@ -6,7 +6,7 @@ import {
   deleteParticipant,
   getParticipants,
 } from "../../services/ParticipantService";
-import Button from "../Button";
+
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -95,11 +95,12 @@ const ParticipantListPage = ({ groupId }: Props) => {
         </div>
       ))}
       <div className="fixed bottom-2 right-16 m-4">
-        <Button
-          name="Add Participant"
+        <span
+          className="h-23 w-24 bg-secondary px-3 py-2 rounded-full z-10 hover:cursor-pointer"
           onClick={() => setShowForm(true)}
-          isPrimary={false}
-        />
+        >
+          <i className="fa fa-plus" aria-hidden="true"></i>
+        </span>
       </div>
 
       {/*  Modal Overlay: add participant form */}

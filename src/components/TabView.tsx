@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ParticipantListPage from "./pages/ParticipantListPage";
+import ExpensesPage from "./pages/ExpensesPage";
 
 type Tab = "participants" | "expenses" | "summary";
 
@@ -18,7 +19,12 @@ const TabView = ({ groupId }: Props) => {
         </div>
       );
 
-    if (activeTab === "expenses") return <div>Show Group Expenses</div>;
+    if (activeTab === "expenses")
+      return (
+        <div>
+          <ExpensesPage />
+        </div>
+      );
 
     return <div>Show Group Summary</div>;
   };
