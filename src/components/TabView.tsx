@@ -22,7 +22,7 @@ const TabView = ({ groupId }: Props) => {
     if (activeTab === "expenses")
       return (
         <div>
-          <ExpensesPage />
+          <ExpensesPage groupId={groupId} />
         </div>
       );
 

@@ -1,6 +1,13 @@
 import { useState } from "react";
+import type { Expense } from "../models/GroupModels";
 
-const ExpenseCard = () => {
+interface Props {
+  expense: Expense;
+}
+
+const ExpenseCard = ({ expense }: Props) => {
+  const { description, expenseParticipants } = expense;
+
   const [showDetials, setShowDetails] = useState<boolean>(false);
 
   /* hover:border-0 border-accent-txt hover:bg-secondary hover:cursor-pointer  */
@@ -12,9 +19,11 @@ const ExpenseCard = () => {
         </div>
         <div>
           <p className="text-primary-txt text-md font-semibold">
-            Brunch at kitchen story
+            {description}
           </p>
-          <p className="text-accent-txt text-sm ">7 participant</p>
+          <p className="text-accent-txt text-sm ">
+            {expenseParticipants.length} Participants
+          </p>
         </div>
         <div
           className="ml-auto hover:cursor-pointer"

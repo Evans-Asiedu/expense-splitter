@@ -1,10 +1,25 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import type { Expense } from "../../models/GroupModels";
 import ExpenseCard from "../ExpenseCard";
+import { getExpenses } from "../../services/ExpenseService";
 
-const ExpensesPage = () => {
+interface Props {
+  groupId: string;
+}
+
+const ExpensesPage = ({ groupId }: Props) => {
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+
+  useEffect(() => {
+    setExpenses(getExpenses(groupId));
+  }, [groupId]);
+
+  console.log(groupId);
   return (
     <div>
-      <ExpenseCard />
+      {expenses.map((expense) => (
+        <ExpenseCard expense={expense} />
+      ))}
     </div>
   );
 };
