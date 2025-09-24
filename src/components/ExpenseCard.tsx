@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Expense } from "../models/GroupModels";
+import ExpenseForm from "./ExpenseForm";
 
 interface Props {
   expense: Expense;
@@ -39,7 +40,11 @@ const ExpenseCard = ({ expense }: Props) => {
       </div>
       {showDetials && (
         <div className="mb-1 bg-secondary">
-          <div>Allow for edit</div>
+          <ExpenseForm
+            groupId="g1"
+            onExpenseAdded={() => {}}
+            onClose={() => {}}
+          />
         </div>
       )}
     </div>
