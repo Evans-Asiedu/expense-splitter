@@ -43,24 +43,27 @@ export const data: Group[] = [
         expenseParticipants: [
           {
             id: "p1",
-            amountToPay: 240,
-            amountPaid: 200,
-            percentageContribution: 40,
-            status: "owing",
+            name: "Ama",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p2",
-            amountToPay: 210,
-            amountPaid: 150,
-            percentageContribution: 35,
-            status: "owing",
+            name: "John",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p3",
-            amountToPay: 150,
-            amountPaid: 250,
-            percentageContribution: 25,
-            status: "overpaid",
+            name: "Ben",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
         ],
       },
@@ -74,24 +77,27 @@ export const data: Group[] = [
         expenseParticipants: [
           {
             id: "p1",
-            amountToPay: 80,
-            amountPaid: 200,
-            percentageContribution: 40,
-            status: "overpaid",
+            name: "Ama",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p2",
-            amountToPay: 70,
-            amountPaid: 150,
-            percentageContribution: 35,
-            status: "overpaid",
+            name: "John",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p3",
-            amountToPay: 50,
-            amountPaid: 50,
-            percentageContribution: 25,
-            status: "settled",
+            name: "Ben",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
         ],
       },
@@ -147,24 +153,27 @@ export const data: Group[] = [
         expenseParticipants: [
           {
             id: "p1",
-            amountToPay: 240,
-            amountPaid: 200,
-            percentageContribution: 40,
-            status: "owing",
+            name: "Ama",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p2",
-            amountToPay: 210,
-            amountPaid: 150,
-            percentageContribution: 35,
-            status: "owing",
+            name: "John",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p3",
-            amountToPay: 150,
-            amountPaid: 250,
-            percentageContribution: 25,
-            status: "overpaid",
+            name: "Ben",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
         ],
       },
@@ -178,24 +187,27 @@ export const data: Group[] = [
         expenseParticipants: [
           {
             id: "p1",
-            amountToPay: 80,
-            amountPaid: 200,
-            percentageContribution: 40,
-            status: "overpaid",
+            name: "Ama",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p2",
-            amountToPay: 70,
-            amountPaid: 150,
-            percentageContribution: 35,
-            status: "overpaid",
+            name: "John",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p3",
-            amountToPay: 50,
-            amountPaid: 50,
-            percentageContribution: 25,
-            status: "settled",
+            name: "Ben",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
         ],
       },
@@ -251,24 +263,27 @@ export const data: Group[] = [
         expenseParticipants: [
           {
             id: "p1",
-            amountToPay: 240,
-            amountPaid: 200,
-            percentageContribution: 40,
-            status: "owing",
+            name: "Ama",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p2",
-            amountToPay: 210,
-            amountPaid: 150,
-            percentageContribution: 35,
-            status: "owing",
+            name: "John",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p3",
-            amountToPay: 150,
-            amountPaid: 250,
-            percentageContribution: 25,
-            status: "overpaid",
+            name: "Ben",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
         ],
       },
@@ -282,24 +297,27 @@ export const data: Group[] = [
         expenseParticipants: [
           {
             id: "p1",
-            amountToPay: 80,
-            amountPaid: 200,
-            percentageContribution: 40,
-            status: "overpaid",
+            name: "Ama",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p2",
-            amountToPay: 70,
-            amountPaid: 150,
-            percentageContribution: 35,
-            status: "overpaid",
+            name: "John",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
           {
             id: "p3",
-            amountToPay: 50,
-            amountPaid: 50,
-            percentageContribution: 25,
-            status: "settled",
+            name: "Ben",
+            contribution: "600",
+            weight: 40,
+            avatarUrl:
+              "https://cdn.usegalileo.ai/stability/e995b051-eff4-4ba3-964c-7ebd7b82b9dc.png",
           },
         ],
       },
