@@ -5,6 +5,7 @@ import { getExpenses, saveExpense } from "../../services/ExpenseService";
 import Button from "../Button";
 import ExpenseForm from "../ExpenseForm";
 import type { ExpenseData } from "../ExpenseForm";
+import ConfirmDialog from "../ConfirmDialog";
 
 interface Props {
   groupId: string;
@@ -13,6 +14,8 @@ interface Props {
 const ExpensesPage = ({ groupId }: Props) => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const [isConfirmDialogOpen, setIsConfirmDialogOpen] =
+    useState<boolean>(false);
   const [expense, setExpense] = useState<Expense | null>(null);
   const [selectedExpenseId, setSelectedExpenseId] = useState<string>("");
 
@@ -30,6 +33,11 @@ const ExpensesPage = ({ groupId }: Props) => {
     // const currentExpense = expenses.find((e) => e.id === expenseId);
     // setExpense(currentExpense ?? null);
     setSelectedExpenseId(expenseId);
+  };
+
+  const showConfirmDialog = (expenseId: string) => {
+    setSelectedExpenseId(expenseId);
+    setIsConfirmDialogOpen(true);
   };
 
   const handleSubmit = (expense: ExpenseData) => {
@@ -51,6 +59,11 @@ const ExpensesPage = ({ groupId }: Props) => {
     setSelectedExpenseId("");
   };
 
+  const handleDeleteExpense = (expenseId: string) => {
+    console.log(expenseId);
+    setIsConfirmDialogOpen(false);
+  };
+
   useEffect(() => {
     // get expense from data base;
     setExpenses(getExpenses(groupId));
@@ -61,7 +74,8 @@ const ExpensesPage = ({ groupId }: Props) => {
       {expenses.map((expense) => (
         <ExpenseCard
           expense={expense}
-          onClickExpenseItem={showForm}
+          onEdit={showForm}
+          onDelete={showConfirmDialog}
           selectedId={selectedExpenseId}
         />
       ))}
@@ -72,6 +86,18 @@ const ExpensesPage = ({ groupId }: Props) => {
             onSubmit={(expense) => handleSubmit(expense)}
             onClose={handleFormClose}
             expense={expense}
+          />
+        )}
+      </div>
+
+      <div>
+        {isConfirmDialogOpen && (
+          <ConfirmDialog
+            name="confirmation"
+            onCancel={() => {
+              setIsConfirmDialogOpen(false);
+            }}
+            onDelete={() => handleDeleteExpense(selectedExpenseId)}
           />
         )}
       </div>
