@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ParticipantListPage from "./pages/ParticipantListPage";
+//import ParticipantListPage from "./pages/ParticipantListPage";
 import ExpensesPage from "./pages/ExpensesPage";
 
 type Tab = "participants" | "expenses" | "summary";
@@ -9,15 +9,15 @@ interface Props {
 }
 
 const TabView = ({ groupId }: Props) => {
-  const [activeTab, setActiveTab] = useState<Tab>("participants");
+  const [activeTab, setActiveTab] = useState<Tab>("expenses");
 
   const renderTabContent = () => {
-    if (activeTab === "participants")
-      return (
-        <div>
-          <ParticipantListPage groupId={groupId} />
-        </div>
-      );
+    // if (activeTab === "participants")
+    //   return (
+    //     <div>
+    //       <ParticipantListPage groupId={groupId} />
+    //     </div>
+    //   );
 
     if (activeTab === "expenses")
       return (
@@ -33,7 +33,7 @@ const TabView = ({ groupId }: Props) => {
     <div>
       {/* Tab */}
       <div className="flex border-b border-gray-300 mb-2">
-        <button
+        {/* <button
           className={`flex-1 py-2 ${
             activeTab === "participants"
               ? "border-b-2 border-sky-500 font-semibold"
@@ -42,7 +42,7 @@ const TabView = ({ groupId }: Props) => {
           onClick={() => setActiveTab("participants")}
         >
           Participants
-        </button>
+        </button> */}
         <button
           className={`flex-1 py-2 ${
             activeTab === "expenses"

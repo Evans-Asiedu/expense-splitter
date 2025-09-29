@@ -25,7 +25,7 @@ const GroupDetailsPage = ({ group }: Props) => {
         </div>
       </div>
       <div className="mt-3">
-        <TabView groupId="g1" />
+        <TabView groupId="group-1" />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { getGroup } from "./services/GroupService";
 // import HomePage from "./components/pages/HomePage";
 
 function App() {
-  const group: Group | undefined = getGroup("g2");
+  const group: Group | undefined = getGroup("group-1");
 
   if (!group) return <p>No Group</p>;
 
