@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import type { Expense } from "../../models/GroupModels";
 import ExpenseCard from "../ExpenseCard";
-import { getExpenses, saveExpense } from "../../services/ExpenseService";
+import {
+  deleteExpense,
+  getExpenses,
+  saveExpense,
+} from "../../services/ExpenseService";
 import Button from "../Button";
 import ExpenseForm from "../ExpenseForm";
 import type { ExpenseData } from "../ExpenseForm";
@@ -30,8 +34,6 @@ const ExpensesPage = ({ groupId }: Props) => {
 
     const currentExpense = expenses.find((e) => e.id === expenseId);
     setExpense(currentExpense ?? null);
-    // const currentExpense = expenses.find((e) => e.id === expenseId);
-    // setExpense(currentExpense ?? null);
     setSelectedExpenseId(expenseId);
   };
 
@@ -60,8 +62,19 @@ const ExpensesPage = ({ groupId }: Props) => {
   };
 
   const handleDeleteExpense = (expenseId: string) => {
-    console.log(expenseId);
+    // remove expense from list of expenses
+    const updatedExpenses = expenses.filter((e) => e.id !== expenseId);
+    setExpenses(updatedExpenses);
     setIsConfirmDialogOpen(false);
+
+    // remove expense from db & save
+    try {
+      deleteExpense(groupId, expenseId);
+    } catch (error: unknown) {
+      console.log(error); // need to be look at
+
+      setExpenses(expenses);
+    }
   };
 
   useEffect(() => {
