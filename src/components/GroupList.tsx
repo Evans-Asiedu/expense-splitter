@@ -3,15 +3,16 @@ import GroupCard from "./GroupCard";
 
 interface Props {
   groups: Group[];
+  onDeleteGroupItem: (groupId: string) => void;
 }
 
-const GroupList = ({ groups }: Props) => {
+const GroupList = ({ groups, onDeleteGroupItem }: Props) => {
   if (groups.length === 0) return <p>There are no groups</p>;
 
   return (
     <div>
       {groups.map((group) => (
-        <GroupCard key={group.id} group={group} />
+        <GroupCard onDelete={onDeleteGroupItem} key={group.id} group={group} />
       ))}
     </div>
   );

@@ -1,19 +1,20 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Button from "./Button";
 import type { Group } from "../models/GroupModels";
 
 interface GroupProps {
   group: Group;
+  onDelete: (groupId: string) => void;
 }
 
-const GroupCard = ({ group }: GroupProps) => {
+const GroupCard = ({ group, onDelete }: GroupProps) => {
   const { imageUrl, expenseList, participantList, name } = group;
-  const [showDialog, setShowDialog] = useState<boolean>(false);
+  // const [showDialog, setShowDialog] = useState<boolean>(false);
 
-  const handleDelete = () => {
-    console.log("deleting group");
-    setShowDialog(false);
-  };
+  // const handleDelete = () => {
+  //   console.log("deleting group");
+  //   setShowDialog(false);
+  // };
 
   return (
     <div className="w-full p-2 outline-1 outline-gray-400 rounded-md sm:flex flex-row-reverse justify-between mb-4">
@@ -37,7 +38,7 @@ const GroupCard = ({ group }: GroupProps) => {
           />
           <Button
             name="Delete"
-            onClick={() => setShowDialog(true)}
+            onClick={() => onDelete(group.id)}
             isPrimary={true}
             color="bg-red-300 hover:bg-red-400"
             type="button"
@@ -46,7 +47,7 @@ const GroupCard = ({ group }: GroupProps) => {
       </div>
 
       {/* Confirmation Popup */}
-      {showDialog && (
+      {/* {showDialog && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-500/75">
           <div className="bg-white p-4 rounded-md shadow-md w-64 text-center">
             <p className="mb-4 font-medium">
@@ -70,7 +71,7 @@ const GroupCard = ({ group }: GroupProps) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
