@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import GroupDetailsPage from "./components/pages/GroupDetailsPage";
+// import SummaryPage from "./components/pages/SummaryPage";
 
 import type { Group } from "./models/GroupModels";
 import { getGroup } from "./services/GroupService";
