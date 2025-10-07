@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(true);
 
   const navigation = [
-    { name: "Home", href: "#", current: false },
-    { name: "Group", href: "#", current: false },
-    { name: "Analytics", href: "#", current: false },
-    { name: "New Group", href: "#", current: true },
+    { name: "Home", href: "/", current: false },
+    { name: "Group", href: "/groups", current: false },
+    { name: "Analytics", href: "/analytics", current: false },
+    { name: "New Group", href: "/add-group", current: true },
   ];
 
   return (
@@ -45,17 +46,21 @@ const NavBar = () => {
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex items-center space-x-4">
             {navigation.map((item) => (
-              <a
+              <NavLink
                 key={item.name}
-                href={item.href}
-                className={`rounded-xl px-3 py-1.5 font-medium ${
-                  item.current
-                    ? "bg-primary text-secondary-txt hover:bg-sky-500"
-                    : "hover:bg-gray-300"
-                }`}
+                to={item.href}
+                className={({ isActive }) => {
+                  if (item.current) {
+                    return "rounded-xl px-3 py-1.5 font-medium bg-primary text-secondary-txt hover:bg-sky-500";
+                  }
+
+                  return `rounded-xl px-3 py-1.5 font-medium ${
+                    isActive ? "bg-gray-300" : "hover:bg-gray-100"
+                  }`;
+                }}
               >
                 {item.name}
-              </a>
+              </NavLink>
             ))}
           </div>
         </div>
@@ -68,17 +73,21 @@ const NavBar = () => {
       >
         <div className="flex flex-col space-y-1">
           {navigation.map((item) => (
-            <a
+            <NavLink
               key={item.name}
-              href={item.href}
-              className={`rounded-xl px-3 py-1 font-medium ${
-                item.current
-                  ? "bg-primary text-secondary-txt hover:bg-sky-500"
-                  : "hover:bg-gray-300"
-              }`}
+              to={item.href}
+              className={({ isActive }) => {
+                if (item.current) {
+                  return "rounded-xl px-3 py-1.5 font-medium bg-primary text-secondary-txt hover:bg-sky-500";
+                }
+
+                return `rounded-xl px-3 py-1.5 font-medium ${
+                  isActive ? "bg-gray-300" : "hover:bg-gray-100"
+                }`;
+              }}
             >
               {item.name}
-            </a>
+            </NavLink>
           ))}
         </div>
       </div>

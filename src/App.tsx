@@ -1,22 +1,24 @@
 import NavBar from "./components/NavBar";
+import CreateGroupPage from "./components/pages/CreateGroupPage";
 import GroupDetailsPage from "./components/pages/GroupDetailsPage";
-// import SummaryPage from "./components/pages/SummaryPage";
-
-import type { Group } from "./models/GroupModels";
-import { getGroup } from "./services/GroupService";
-// import GroupListPage from "./components/pages/GroupListPage";
-// import HomePage from "./components/pages/HomePage";
+import GroupListPage from "./components/pages/GroupListPage";
+import HomePage from "./components/pages/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const group: Group | undefined = getGroup("group-1");
-
-  if (!group) return <p>No Group</p>;
-
   return (
     <>
       <div className="h-screen bg-background">
-        <NavBar />
-        <GroupDetailsPage group={group} />
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/groups" element={<GroupListPage />} />
+            <Route path="/groups/:id" element={<GroupDetailsPage />} />
+            {/* <Route path="/analytics" element={} /> */}
+            <Route path="add-group" element={<CreateGroupPage />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   );

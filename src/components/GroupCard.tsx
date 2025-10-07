@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import Button from "./Button";
 import type { Group } from "../models/GroupModels";
+import { useNavigate } from "react-router-dom";
 
 interface GroupProps {
   group: Group;
@@ -10,6 +11,12 @@ interface GroupProps {
 const GroupCard = ({ group, onDelete }: GroupProps) => {
   const { imageUrl, expenseList, participantList, name } = group;
   // const [showDialog, setShowDialog] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
+  const handleViewClick = () => {
+    navigate(`/groups/${group.id}`);
+  };
 
   // const handleDelete = () => {
   //   console.log("deleting group");
@@ -31,9 +38,9 @@ const GroupCard = ({ group, onDelete }: GroupProps) => {
         </div>
         <div className="flex gap-2">
           <Button
-            name="view details"
+            name="View"
             isPrimary={false}
-            onClick={() => {}}
+            onClick={handleViewClick}
             type="button"
           />
           <Button
