@@ -7,8 +7,9 @@ export function getGroups(): Group[] {
   return groups;
 }
 
-export function getGroup(groupId: string): Group | undefined {
-  return groups.find((g) => g.id === groupId);
+export function getGroupById(groupId: string): Group | null {
+  const group = groups.find((g) => g.id === groupId);
+  return group ? group : null;
 }
 
 export function saveGroup(group: Group): Group {
