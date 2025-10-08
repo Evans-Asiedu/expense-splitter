@@ -15,9 +15,9 @@ const ExpenseCard = ({ expense, onEdit, onDelete, selectedId }: Props) => {
 
   /* hover:border-0 border-accent-txt hover:bg-secondary hover:cursor-pointer  */
   return (
-    <div className="p-1 sm:px-3 sm:py-1.5 hover:cursor-pointer hover:bg-primary mb-2">
+    <div className="p-1 sm:px-3 sm:py-1.5 hover:cursor-pointer hover:bg-secondary hover:rounded-xl mb-2">
       <div className="flex gap-3 justify-between items-center ">
-        <div className="px-3 py-3 sm:px-4 sm:py-3 bg-secondary rounded-xl">
+        <div className="px-3 py-3 sm:px-4 sm:py-3 bg-accent-txt rounded-xl">
           <i className="fa fa-money" aria-hidden="true"></i>
         </div>
         <div className="w-50 sm:w-full">
