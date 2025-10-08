@@ -9,8 +9,7 @@ interface GroupProps {
 }
 
 const GroupCard = ({ group, onDelete }: GroupProps) => {
-  const { imageUrl, expenseList, participantList, name } = group;
-  // const [showDialog, setShowDialog] = useState<boolean>(false);
+  const { imageUrl, expensesCount, name, totalExpenses } = group;
 
   const navigate = useNavigate();
 
@@ -18,29 +17,29 @@ const GroupCard = ({ group, onDelete }: GroupProps) => {
     navigate(`/groups/${group.id}`);
   };
 
-  // const handleDelete = () => {
-  //   console.log("deleting group");
-  //   setShowDialog(false);
-  // };
-
   return (
-    <div className="w-full p-2 outline-1 outline-gray-400 rounded-md sm:flex flex-row-reverse justify-between mb-4">
+    <div className="w-full p-1.5 outline-1 outline-gray-200 rounded-md sm:flex flex-row-reverse justify-between mb-4">
       <img
         src={imageUrl}
         alt=""
         className="mb-2 rounded-md h-84 w-full sm:w-1/2 sm:h-48 md:w-1/3"
       />
       <div className="flex justify-between sm:block">
-        <div className="text-sm sm:mb-3">
-          <span className="mr-2">{expenseList.length} expenses</span>{" "}
-          <span>{participantList.length} members</span>
+        <div className="flex flex-col text-sm sm:block sm:mb-3">
+          <span className="mr-2 text-accent-txt">
+            Total Expenses: ${totalExpenses}
+          </span>{" "}
+          <span className="text-accent-txt">
+            No. of Expenses: {expensesCount}
+          </span>
           <h2 className="font-bold text-lg">{name}</h2>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 self-center">
           <Button
             name="View"
             isPrimary={false}
             onClick={handleViewClick}
+            rounded={true}
             type="button"
           />
           <Button
@@ -48,6 +47,7 @@ const GroupCard = ({ group, onDelete }: GroupProps) => {
             onClick={() => onDelete(group.id)}
             isPrimary={true}
             color="bg-red-300 hover:bg-red-400"
+            rounded={true}
             type="button"
           />
         </div>
