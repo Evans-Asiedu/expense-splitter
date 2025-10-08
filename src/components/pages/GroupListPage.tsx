@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
 import Header from "../Header";
-import { getGroups } from "../../services/GroupService";
+import { deleteGroup, getGroups } from "../../services/GroupService";
 import type { Group } from "../../models/GroupModels";
 import GroupList from "../GroupList";
 import ConfirmDialog from "../ConfirmDialog";
@@ -12,6 +12,9 @@ const GroupListPage = () => {
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] =
     useState<boolean>(false);
+  const [groupId, setGroupId] = useState<string>("");
+
+  useState<boolean>(false);
 
   useEffect(() => {
     const data = getGroups();
@@ -40,7 +43,18 @@ const GroupListPage = () => {
   // need to be properly named
   const onDeleteCall = (groupId: string) => {
     setIsConfirmDialogOpen(true);
+    setGroupId(groupId);
     console.log(groupId);
+  };
+
+  const handleConfirmDelete = () => {
+    console.log("delete confirm");
+    const updatedGroups = groups.filter((g) => g.id !== groupId);
+    setGroups(updatedGroups);
+    setIsConfirmDialogOpen(false);
+
+    // remove group from database
+    deleteGroup(groupId);
   };
 
   return (
@@ -55,7 +69,7 @@ const GroupListPage = () => {
             onCancel={() => {
               setIsConfirmDialogOpen(false);
             }}
-            onDelete={() => {}}
+            onDelete={handleConfirmDelete}
           />
         )}
       </div>
