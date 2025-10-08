@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { saveGroup } from "../services/GroupService";
+import type { Expense, Participant, Receipt } from "../models/GroupModels";
+import { useNavigate } from "react-router-dom";
 
 type GroupData = {
-  id: number;
+  id: string;
   name: string;
   description: string;
-  budget: string;
-  currencey: string;
+  budget: number;
   totalExpenses: number;
-  amountOwed: number;
+  expensesCount: number;
   imageUrl: string;
+  participantList: Participant[];
+  expenseList: Expense[];
+  receiptList: Receipt[];
 };
 
 type errorData = {
@@ -21,14 +26,18 @@ const GroupForm = () => {
   const [data, setData] = useState<GroupData>({
     name: "",
     description: "",
-    budget: "",
-    currencey: "USD",
-    id: Date.now(),
+    budget: 0,
+    id: Date.now().toString(),
     totalExpenses: 0,
-    amountOwed: 0,
+    expensesCount: 0,
+    participantList: [],
+    expenseList: [],
+    receiptList: [],
     imageUrl:
       "https://cdn.usegalileo.ai/stability/729e7a19-9450-4e5a-a795-fb4ccb57f91a.png",
   });
+
+  const navigateTo = useNavigate();
 
   const [error, setError] = useState<errorData>();
 
@@ -69,6 +78,8 @@ const GroupForm = () => {
 
     console.log("Form submitted", data);
     // TODO: send data to state management
+    saveGroup(data);
+    navigateTo(`/groups`);
   };
 
   const handleChange = (
@@ -141,7 +152,7 @@ const GroupForm = () => {
                 name="currencies"
                 id="currencies"
                 className="p-1 block w-full outline-1 outline-gray-300 rounded-md focus:outline-2 focus:outline-primary"
-                value={data.currencey}
+                value={"USD"}
                 onChange={handleChange}
               >
                 {currencies.map((currency) => (
@@ -163,8 +174,7 @@ const GroupForm = () => {
                 ...prev,
                 name: "",
                 description: "",
-                budget: "",
-                currencey: "USD",
+                budget: 0,
               }))
             }
           />
