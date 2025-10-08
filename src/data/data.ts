@@ -340,7 +340,8 @@ export const data: Group[] = [
     budget: 2000.0,
     totalExpenses: 650.0,
     expensesCount: 3,
-    imageUrl: "https://example.com/images/weekend-getaway.jpg",
+    imageUrl:
+      "https://cdn.usegalileo.ai/stability/729e7a19-9450-4e5a-a795-fb4ccb57f91a.png",
     participantList: [
       {
         id: "p1",
