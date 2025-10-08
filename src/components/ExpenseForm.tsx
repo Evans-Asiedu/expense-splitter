@@ -260,7 +260,15 @@ const ExpenseForm = ({ onSubmit, onClose, expense }: Props) => {
         className="p-4 border-2 bg-secondary-txt rounded-md
                     max-h-[80vh] overflow-y-auto"
       >
-        <Header title={expense ? "Edit Expense" : "Add Expense"} />
+        <div className="flex justify-between">
+          <Header title={expense ? "Edit Expense" : "Add Expense"} />
+          <span
+            className="self-start mt-2 hover:cursor-pointer"
+            onClick={onClose}
+          >
+            <i className="fa fa-times fa-lg" aria-hidden="true"></i>
+          </span>
+        </div>
         <form action="" onSubmit={handleSubmit} className="mt-7">
           <div>
             {error.name === "name" && (
@@ -414,8 +422,12 @@ const ExpenseForm = ({ onSubmit, onClose, expense }: Props) => {
           </div>
 
           <div className="flex gap-2 mt-4">
-            <Button name="cancel" isPrimary={false} onClick={onClose} />
-            <Button name="save" isPrimary={true} type="submit" />
+            <Button name="Cancel" isPrimary={false} onClick={onClose} />
+            <Button
+              name={expense ? "Update" : "Save"}
+              isPrimary={true}
+              type="submit"
+            />
           </div>
         </form>
       </div>
