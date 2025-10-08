@@ -18,13 +18,13 @@ const CardList = () => {
       title: "Couples",
       description: "Even out date nights and trips",
       imageUrl:
-        "https://cdn.usegalileo.ai/stability/de34bada-e604-4bdb-b117-f72b392821a0.png",
+        "https://cdn.pixabay.com/photo/2024/01/29/08/54/hot-air-balloon-8539287_960_720.png",
     },
     {
       title: "Family",
       description: "Split holidays and vacations",
       imageUrl:
-        "https://cdn.usegalileo.ai/sdxl10/3a4bc566-a2f9-40bb-b275-3a348f14e5f6.png",
+        "https://cdn.pixabay.com/photo/2025/07/27/03/37/travel-9737850_960_720.jpg",
     },
   ];
 
