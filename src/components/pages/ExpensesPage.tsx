@@ -119,6 +119,7 @@ const ExpensesPage = ({ groupId }: Props) => {
         <Button
           name="Add Expense"
           isPrimary={true}
+          color={"w-full mt-1.5 bg-primary text-secondary-txt hover:bg-sky-500"}
           onClick={() => showForm(null)}
         />
       </div>
