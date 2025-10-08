@@ -19,7 +19,7 @@ const GroupDetailsPage = () => {
 
   if (!group) return <p>Loading...</p>;
 
-  const { name, description, budget, participantList } = group;
+  const { name, description, budget } = group;
 
   return (
     <div className="w-5/6 mx-auto mt-3">
@@ -29,6 +29,8 @@ const GroupDetailsPage = () => {
           name="Go back"
           isPrimary={false}
           type="button"
+          rounded={true}
+          color="self-center bg-secondary text-primary-text hover:bg-gray-500 outline-1"
           onClick={() => {
             window.history.back();
           }}
@@ -37,13 +39,13 @@ const GroupDetailsPage = () => {
       <div>
         <p className="font-semibold">{description}</p>
         <div className="flex gap-x-2 text-sm text-gray-400 my-1">
-          <span>{participantList.length} people</span>
+          {/* <span>{participantList.length} people</span> */}
           <span>${budget} budget</span>
-          <span>20 days</span>
+          {/* <span>20 days</span> */}
         </div>
       </div>
       <div className="mt-3">
-        <TabView groupId="group-1" />
+        <TabView groupId={group.id} />
       </div>
     </div>
   );
