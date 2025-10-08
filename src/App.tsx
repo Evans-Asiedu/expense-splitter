@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="h-screen bg-background">
+      <div className="min-h-screen bg-background">
         <BrowserRouter>
           <NavBar />
           <Routes>
