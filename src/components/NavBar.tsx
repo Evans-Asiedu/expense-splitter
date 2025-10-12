@@ -1,15 +1,23 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Button from "./Button";
+import CreateGroupPage from "./pages/CreateGroupPage";
+import { Modal } from "./Modal";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(true);
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
   const navigation = [
     { name: "Home", href: "/", current: false },
     { name: "Group", href: "/groups", current: false },
     { name: "Analytics", href: "/analytics", current: false },
-    { name: "New Group", href: "/add-group", current: true },
+    // { name: "New Group", href: "/add-group", current: true },
   ];
+
+  const handleFormOpen = () => {
+    setIsFormOpen(true);
+  };
 
   return (
     <nav>
@@ -50,18 +58,29 @@ const NavBar = () => {
                 key={item.name}
                 to={item.href}
                 className={({ isActive }) => {
+                  const base =
+                    "rounded-xl px-3 py-1.5 font-medium transition-all duration-500 ease-in-out";
+                  const active = "bg-gray-300";
+                  const inactive = "hover:bg-gray-100";
+                  const custom =
+                    "bg-primary text-secondary-txt hover:bg-sky-500";
+
                   if (item.current) {
-                    return "rounded-xl px-3 py-1.5 font-medium bg-primary text-secondary-txt hover:bg-sky-500";
+                    return `${base} ${custom}`;
                   }
 
-                  return `rounded-xl px-3 py-1.5 font-medium ${
-                    isActive ? "bg-gray-300" : "hover:bg-gray-100"
-                  }`;
+                  return `${base} ${isActive ? active : inactive}`;
                 }}
               >
                 {item.name}
               </NavLink>
             ))}
+            <Button
+              name="New Group"
+              isPrimary={true}
+              type="button"
+              onClick={handleFormOpen}
+            />
           </div>
         </div>
       </div>
@@ -77,20 +96,39 @@ const NavBar = () => {
               key={item.name}
               to={item.href}
               className={({ isActive }) => {
+                const base =
+                  "rounded-xl px-3 py-1.5 font-medium transition-all duration-500 ease-in-out";
+                const active = "bg-gray-300";
+                const inactive = "hover:bg-gray-100";
+                const custom = "bg-primary text-secondary-txt hover:bg-sky-500";
+
                 if (item.current) {
-                  return "rounded-xl px-3 py-1.5 font-medium bg-primary text-secondary-txt hover:bg-sky-500";
+                  return `${base} ${custom}`;
                 }
 
-                return `rounded-xl px-3 py-1.5 font-medium ${
-                  isActive ? "bg-gray-300" : "hover:bg-gray-100"
-                }`;
+                return `${base} ${isActive ? active : inactive}`;
               }}
             >
               {item.name}
             </NavLink>
           ))}
+          <Button
+            name="New Group"
+            isPrimary={true}
+            type="button"
+            onClick={handleFormOpen}
+          />
         </div>
       </div>
+
+      <Modal
+        isOpen={isFormOpen}
+        onClose={() => {
+          setIsFormOpen(false);
+        }}
+      >
+        <CreateGroupPage onClose={() => setIsFormOpen(false)} />
+      </Modal>
     </nav>
   );
 };

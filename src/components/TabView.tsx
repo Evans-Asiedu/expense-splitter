@@ -11,6 +11,18 @@ interface Props {
 
 const TabView = ({ groupId }: Props) => {
   const [activeTab, setActiveTab] = useState<Tab>("expenses");
+  const [fade, setFade] = useState("fade-in");
+
+  const handleTabChange = (tab: Tab) => {
+    if (tab !== activeTab) {
+      // Trigger fade out
+      setFade("fade-out");
+      setTimeout(() => {
+        setActiveTab(tab);
+        setFade("fade-in");
+      }, 300); // Match fade-out duration
+    }
+  };
 
   const renderTabContent = () => {
     // if (activeTab === "participants")
@@ -27,11 +39,14 @@ const TabView = ({ groupId }: Props) => {
         </div>
       );
 
-    return (
-      <div>
-        <SummaryPage groupId={groupId} />
-      </div>
-    );
+    if (activeTab === "summary")
+      return (
+        <div>
+          <SummaryPage groupId={groupId} />
+        </div>
+      );
+
+    return null;
   };
 
   return (
@@ -49,28 +64,30 @@ const TabView = ({ groupId }: Props) => {
           Participants
         </button> */}
         <button
-          className={`flex-1 py-2 ${
+          className={`flex-1 py-2 transition-all duration-300 ${
             activeTab === "expenses"
               ? "border-b-2 border-sky-500 font-semibold"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab("expenses")}
+          onClick={() => handleTabChange("expenses")}
         >
           Expenses
         </button>
         <button
-          className={`flex-1 py-2 ${
+          className={`flex-1 py-2 transition-all duration-300 ${
             activeTab === "summary"
               ? "border-b-2 border-sky-500 font-semibold"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab("summary")}
+          onClick={() => handleTabChange("summary")}
         >
           Summary
         </button>
       </div>
 
-      <div>{renderTabContent()}</div>
+      <div key={activeTab} className={`${fade}`}>
+        {renderTabContent()}
+      </div>
     </div>
   );
 };

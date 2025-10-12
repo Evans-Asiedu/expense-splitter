@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import type { Expense } from "../models/GroupModels";
 import SummaryTable from "./SummaryTable";
 
@@ -9,6 +10,18 @@ interface Props {
 
 const SummaryCard = ({ expense, isOpen, onToggle }: Props) => {
   const { id, description, amount, expenseParticipants, date } = expense;
+  const [showContent, setShowContent] = useState(isOpen);
+  const [animatingOut, setAnimatingOut] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowContent(true);
+      setAnimatingOut(false);
+    } else {
+      setAnimatingOut(true);
+      setTimeout(() => setShowContent(false), 300);
+    }
+  }, [isOpen]);
 
   return (
     <div
@@ -41,7 +54,9 @@ const SummaryCard = ({ expense, isOpen, onToggle }: Props) => {
         >
           <span className="flex gap-x-2 mt-1 sm:gap-x-3">
             <i
-              className={isOpen ? "fa fa-arrow-down" : "fa fa-arrow-right"}
+              className={`fa fa-arrow-right ${
+                isOpen ? "rotate-down" : "rotate-right"
+              }`}
               aria-hidden="true"
               onClick={() => {
                 onToggle(id);
@@ -51,7 +66,11 @@ const SummaryCard = ({ expense, isOpen, onToggle }: Props) => {
         </div>
       </div>
 
-      {isOpen && <SummaryTable expense={expense} />}
+      {showContent && (
+        <div className={animatingOut ? "fade-out" : "fade-in"}>
+          <SummaryTable expense={expense} />
+        </div>
+      )}
     </div>
   );
 };
