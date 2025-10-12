@@ -22,7 +22,11 @@ type errorData = {
   message: string;
 };
 
-const GroupForm = () => {
+interface Props {
+  onClose: () => void;
+}
+
+const GroupForm = ({ onClose }: Props) => {
   const [data, setData] = useState<GroupData>({
     name: "",
     description: "",
@@ -169,14 +173,16 @@ const GroupForm = () => {
             name="Cancel"
             isPrimary={false}
             type="reset"
-            onClick={() =>
+            onClick={() => {
               setData((prev) => ({
                 ...prev,
                 name: "",
                 description: "",
                 budget: 0,
-              }))
-            }
+              }));
+
+              onClose();
+            }}
           />
           <Button name="Create Group" isPrimary={true} type="submit" />
         </div>

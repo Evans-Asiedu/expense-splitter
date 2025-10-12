@@ -17,7 +17,7 @@ const CreateGroupPage = ({ onClose }: Props) => {
           <i className="fa fa-times fa-lg" aria-hidden="true"></i>
         </span>
       </div>
-      <GroupForm />
+      <GroupForm onClose={onClose} />
     </div>
   );
 };
