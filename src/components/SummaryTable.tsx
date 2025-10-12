@@ -7,9 +7,9 @@ interface Props {
 const tableHeaders: string[] = [
   "Participant",
   "Weight (%)",
-  "Paid",
-  "Owed",
-  "IsOwed",
+  "Paid ($)",
+  "Owed ($)",
+  "IsOwed ($)",
 ];
 
 const SummaryTable = ({ expense }: Props) => {
