@@ -15,8 +15,6 @@ const SummaryPage = ({ groupId }: Props) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
 
-  // console.log(expenses);
-
   useEffect(() => {
     setExpenses(getExpenses(groupId));
   }, [groupId]);

@@ -39,9 +39,7 @@ const GroupDetailsPage = () => {
       <div>
         <p className="font-semibold">{description}</p>
         <div className="flex gap-x-2 text-sm text-gray-400 my-1">
-          {/* <span>{participantList.length} people</span> */}
           <span>${budget} budget</span>
-          {/* <span>20 days</span> */}
         </div>
       </div>
       <div className="mt-3">
