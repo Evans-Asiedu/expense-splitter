@@ -10,6 +10,7 @@ import Button from "../Button";
 import ExpenseForm from "../ExpenseForm";
 import type { ExpenseData } from "../ExpenseForm";
 import ConfirmDialog from "../ConfirmDialog";
+import { Modal } from "../Modal";
 
 interface Props {
   groupId: string;
@@ -22,6 +23,7 @@ const ExpensesPage = ({ groupId }: Props) => {
     useState<boolean>(false);
   const [expense, setExpense] = useState<Expense | null>(null);
   const [selectedExpenseId, setSelectedExpenseId] = useState<string>("");
+  // const [fadeClass, setFadeClass] = useState("fade-in");
 
   const showForm = (expenseId: string | null) => {
     if (expenseId === null) {
@@ -59,6 +61,11 @@ const ExpensesPage = ({ groupId }: Props) => {
   const handleFormClose = () => {
     setIsFormOpen(false);
     setSelectedExpenseId("");
+    // setFadeClass("fade-out");
+    // setTimeout(() => {
+    //   setIsFormOpen(false);
+    //   setSelectedExpenseId("");
+    // }, 300);
   };
 
   const handleDeleteExpense = (expenseId: string) => {
@@ -93,36 +100,33 @@ const ExpensesPage = ({ groupId }: Props) => {
         />
       ))}
 
-      <div>
-        {isFormOpen && (
-          <ExpenseForm
-            onSubmit={(expense) => handleSubmit(expense)}
-            onClose={handleFormClose}
-            expense={expense}
-          />
-        )}
-      </div>
-
-      <div>
-        {isConfirmDialogOpen && (
-          <ConfirmDialog
-            name="confirmation"
-            onCancel={() => {
-              setIsConfirmDialogOpen(false);
-            }}
-            onDelete={() => handleDeleteExpense(selectedExpenseId)}
-          />
-        )}
-      </div>
-
-      <div>
-        <Button
-          name="Add Expense"
-          isPrimary={true}
-          color={"w-full mt-1.5 bg-primary text-secondary-txt hover:bg-sky-500"}
-          onClick={() => showForm(null)}
+      <Modal isOpen={isFormOpen} onClose={handleFormClose}>
+        <ExpenseForm
+          onSubmit={handleSubmit}
+          onClose={handleFormClose}
+          expense={expense}
         />
-      </div>
+      </Modal>
+
+      <Modal
+        isOpen={isConfirmDialogOpen}
+        onClose={() => setIsConfirmDialogOpen(false)}
+      >
+        <ConfirmDialog
+          name="confirmation"
+          onCancel={() => {
+            setIsConfirmDialogOpen(false);
+          }}
+          onDelete={() => handleDeleteExpense(selectedExpenseId)}
+        />
+      </Modal>
+
+      <Button
+        name="Add Expense"
+        isPrimary={true}
+        color={"w-full mt-1.5 bg-primary text-secondary-txt hover:bg-sky-500"}
+        onClick={() => showForm(null)}
+      />
     </div>
   );
 };

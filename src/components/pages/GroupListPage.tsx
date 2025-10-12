@@ -5,6 +5,7 @@ import { deleteGroup, getGroups } from "../../services/GroupService";
 import type { Group } from "../../models/GroupModels";
 import GroupList from "../GroupList";
 import ConfirmDialog from "../ConfirmDialog";
+import { Modal } from "../Modal";
 
 const GroupListPage = () => {
   const [groups, setGroups] = useState<Group[]>([]);
@@ -62,17 +63,18 @@ const GroupListPage = () => {
       <Header title="Your Groups" />
       <SearchBar value={searchQuery} onChange={handleSearch} />
       <GroupList groups={filteredGroups} onDeleteGroupItem={onDeleteCall} />
-      <div>
-        {isConfirmDialogOpen && (
-          <ConfirmDialog
-            name="confirmation"
-            onCancel={() => {
-              setIsConfirmDialogOpen(false);
-            }}
-            onDelete={handleConfirmDelete}
-          />
-        )}
-      </div>
+      <Modal
+        isOpen={isConfirmDialogOpen}
+        onClose={() => setIsConfirmDialogOpen(false)}
+      >
+        <ConfirmDialog
+          name="confirmation"
+          onCancel={() => {
+            setIsConfirmDialogOpen(false);
+          }}
+          onDelete={handleConfirmDelete}
+        />
+      </Modal>
     </div>
   );
 };
