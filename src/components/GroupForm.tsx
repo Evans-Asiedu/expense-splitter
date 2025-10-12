@@ -69,7 +69,10 @@ const GroupForm = ({ onClose }: Props) => {
     const budgetValue = Number(data.budget);
 
     if (!data.budget || isNaN(budgetValue)) {
-      setError({ name: "budget", message: "Budget must be a valid number" });
+      setError({
+        name: "budget",
+        message: "Value must be valid number & non zero",
+      });
       return;
     }
 
@@ -95,6 +98,10 @@ const GroupForm = ({ onClose }: Props) => {
     setData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleFocus = () => {
+    setError({ name: "", message: "" });
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit} action="" className="px-2">
@@ -106,11 +113,12 @@ const GroupForm = ({ onClose }: Props) => {
             type="text"
             value={data.name}
             onChange={handleChange}
+            onFocus={handleFocus}
             placeholder="Enter group name"
             className="py-1 px-2 block w-full rounded-md outline-1 outline-gray-300 placeholder:text-accent-txt placeholder:text-sm focus:outline-2 focus:outline-primary"
           />
           {error?.name == "name" && (
-            <div className="mt-1 w-full h-8 rounded-md bg-error-400 text-secondary-txt text-sm flex items-center px-2">
+            <div className="mt-1 w-full h-8 rounded-md bg-red-300 text-secondary-txt text-sm flex items-center px-2">
               {error?.message}
             </div>
           )}
@@ -139,11 +147,12 @@ const GroupForm = ({ onClose }: Props) => {
                 type="text"
                 value={data.budget}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 placeholder="Amount"
                 className="py-1 px-2 block w-full outline-1 outline-gray-300 rounded-md placeholder:text-accent-txt placeholder:text-sm focus:outline-2 focus:outline-primary"
               />
               {error?.name == "budget" && (
-                <div className="mt-1 w-full h-8 rounded-md bg-error-400 text-secondary-txt text-sm flex items-center px-2">
+                <div className="mt-1 w-full h-8 rounded-md bg-red-300  text-secondary-txt text-sm flex items-center px-2">
                   {error?.message}
                 </div>
               )}
