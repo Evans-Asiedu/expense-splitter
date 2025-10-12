@@ -1,5 +1,104 @@
 @import "tailwindcss";
 
+/* Animation Effect: Fade and Slides for Tabs and Pages*/
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fade-out 0.35s ease-in-out forwards;
+}
+
+.rotate-down {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.rotate-right {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+/*  Animations Effect: Fade in and out for Modal View */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-slide-up {
+  from {
+    transform: translateY(20px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-down {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px) scale(0.97);
+    opacity: 0;
+  }
+}
+
+/* Utility classes */
+.modal-fade-in {
+  animation: modal-fade-in 0.3s ease-out forwards;
+}
+
+.modal-fade-out {
+  animation: modal-fade-out 0.3s ease-in forwards;
+}
+
+.modal-slide-up {
+  animation: modal-slide-up 0.3s ease-out forwards;
+}
+
+.modal-slide-down {
+  animation: modal-slide-down 0.3s ease-in forwards;
+}
+
 @theme {
   /* */
   --color-background: #f7fafc;
@@ -10,57 +109,6 @@
 
   --color-primary: #1a80e5;
   --color-secondary: #e8edf2;
-
-  --color-error-900: #7a0619;
-  --color-error-800: #930b16;
-  --color-error-700: #b71112;
-  --color-error-600: #db2719;
-  --color-error-500: #ff4423;
-  --color-error-400: #ff7f59;
-  --color-error-300: #ffa37a;
-  --color-error-200: #ffc8a6;
-  --color-error-100: #ffe7d3;
-
-  --color-primary-900: #10197a;
-  --color-primary-800: #1a2793;
-  --color-primary-700: #2a3bb7;
-  --color-primary-600: #3d53db;
-  --color-primary-500: #546fff;
-  --color-primary-400: #7e95ff;
-  --color-primary-300: #98abff;
-  --color-primary-200: #bac8ff;
-  --color-primary-100: #dce4ff;
-  --color-primary-0: #ffffff;
-
-  --color-success-900: #3b6506;
-  --color-success-800: #4c7a0b;
-  --color-success-700: #659711;
-  --color-success-600: #7fb519;
-  --color-success-500: #9cd323;
-  --color-success-400: #bce455;
-  --color-success-300: #d3f178;
-  --color-success-200: #e8faa6;
-  --color-success-100: #f5fcd2;
-
-  --color-warning-900: #7a4d0b;
-  --color-warning-800: #936312;
-  --color-warning-700: #b7821d;
-  --color-warning-600: #dba32a;
-  --color-warning-500: #ffc73a;
-  --color-warning-400: #ffd96b;
-  --color-warning-300: #ffe488;
-  --color-warning-200: #ffefb0;
-  --color-warning-100: #fff8d7;
-
-  --color-info-900: #102e7a;
-  --color-info-800: #1a4393;
-  --color-info-700: #2a60b7;
-  --color-info-600: #3d81db;
-  --color-info-500: #54a6ff;
-  --color-info-400: #7ec2ff;
-  --color-info-300: #98d3ff;
-  --color-info-200: #bae5ff;
-  --color-info-100: #dcf3ff;
 
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
 }
