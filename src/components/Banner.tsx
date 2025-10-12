@@ -1,6 +1,15 @@
+import { useState } from "react";
 import Button from "./Button";
+import { Modal } from "./Modal";
+import CreateGroupPage from "./pages/CreateGroupPage";
 
 const Banner = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleFormOpen = () => {
+    setIsOpen(true);
+  };
+
   return (
     <div className="w-full">
       <div className="relative w-5/6 h-80 mx-auto border rounded-lg sm:h-100 md:h-140 overflow-hidden">
@@ -22,10 +31,19 @@ const Banner = () => {
             name="Get Started"
             isPrimary={true}
             type="button"
-            onClick={() => {}}
+            onClick={handleFormOpen}
           />
         </div>
       </div>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      >
+        <CreateGroupPage onClose={() => setIsOpen(false)} />
+      </Modal>
     </div>
   );
 };
