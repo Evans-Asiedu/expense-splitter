@@ -19,7 +19,7 @@ const Button = ({
     return (
       <button
         type={type}
-        className={`px-3.5 py-1 text-md rounded-full  hover:cursor-pointer ${
+        className={`px-3.5 py-1 text-md rounded-full  hover:cursor-pointer transition-colors duration-300 ease-in-out ${
           color
             ? color
             : isPrimary
@@ -35,7 +35,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`px-3 py-1.5 rounded-xl  hover:cursor-pointer ${
+      className={`px-3 py-1.5 rounded-xl  hover:cursor-pointer transition-colors duration-300 ease-in-out ${
         color
           ? color
           : isPrimary

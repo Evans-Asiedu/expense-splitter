@@ -255,7 +255,7 @@ const ExpenseForm = ({ onSubmit, onClose, expense }: Props) => {
   };
 
   return (
-    <div className="w-full p-4 fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <div>
       <div
         className="p-4 border-2 bg-secondary-txt rounded-md
                     max-h-[80vh] overflow-y-auto"

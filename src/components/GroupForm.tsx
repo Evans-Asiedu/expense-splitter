@@ -93,7 +93,7 @@ const GroupForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} action="" className="ms-2 sm:w-1/2">
+      <form onSubmit={handleSubmit} action="" className="px-2">
         <label htmlFor="name">Group Name</label>
         <div className="mt-2 mb-10">
           <input
@@ -164,7 +164,7 @@ const GroupForm = () => {
             </div>
           </div>
         </div>
-        <div className="flex gap-4 sm:absolute sm:right-0  ">
+        <div className="flex gap-4">
           <Button
             name="Cancel"
             isPrimary={false}

@@ -8,7 +8,7 @@ interface Props {
 
 const ConfirmDialog = ({ name, onCancel, onDelete }: Props) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-500/75">
+    <div className="fixed inset-0 flex items-center justify-center">
       <div className="bg-white p-4 rounded-md shadow-md w-64 text-center">
         <p className="mb-4 font-medium">
           Are you sure you want to delete <br />{" "}
