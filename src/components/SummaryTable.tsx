@@ -49,11 +49,14 @@ const SummaryTable = ({ expense }: Props) => {
     <div>
       <div className="p-4">
         <div className="overflow-x-auto rounded-2xl shadow-md">
-          <table className="min-w-full table-auto border border-gray-200 bg-accent-txt">
+          <table className="min-w-full table-fixed border border-gray-200 bg-accent-txt">
             <thead>
               <tr>
                 {tableHeaders.map((header) => (
-                  <th key={header} className="px-4 py-2 text-sm font-semibold">
+                  <th
+                    key={header}
+                    className="px-4 py-2 text-sm font-semibold text-left whitespace-nowrap"
+                  >
                     {header}
                   </th>
                 ))}
@@ -62,12 +65,22 @@ const SummaryTable = ({ expense }: Props) => {
 
             <tbody>
               {calculateParticipantData().map((p) => (
-                <tr className=" px-4 hover:bg-gray-50 transition-colors">
-                  <td className="px-4 py-2 text-sm">{p.name}</td>
-                  <td className="px-4 py-2 text-sm">{p.weight}</td>
-                  <td className="px-4 py-2 text-sm">{p.contribution}</td>
-                  <td className="px-4 py-2 text-sm">{p.owedAmount}</td>
-                  <td className="px-4 py-2 text-sm">{p.isOwed}</td>
+                <tr key={p.name} className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-2 text-sm whitespace-nowrap ">
+                    {p.name}
+                  </td>
+                  <td className="px-4 py-2 text-sm whitespace-nowrap ">
+                    {p.weight}
+                  </td>
+                  <td className="px-4 py-2 text-sm whitespace-nowrap">
+                    {p.contribution}
+                  </td>
+                  <td className="px-4 py-2 text-sm whitespace-nowrap">
+                    {p.owedAmount}
+                  </td>
+                  <td className="px-4 py-2 text-sm whitespace-nowrap">
+                    {p.isOwed}
+                  </td>
                 </tr>
               ))}
             </tbody>
