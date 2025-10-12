@@ -3,10 +3,12 @@ import { NavLink } from "react-router-dom";
 import Button from "./Button";
 import CreateGroupPage from "./pages/CreateGroupPage";
 import { Modal } from "./Modal";
+import useOutsideClick from "../hooks/useOutsideClick";
 
 const NavBar = () => {
-  const [showMenu, setShowMenu] = useState<boolean>(true);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const ref = useOutsideClick<HTMLDivElement>(() => setShowMenu(false));
 
   const navigation = [
     { name: "Home", href: "/", current: false },
@@ -17,6 +19,7 @@ const NavBar = () => {
 
   const handleFormOpen = () => {
     setIsFormOpen(true);
+    setShowMenu(false);
   };
 
   return (
@@ -86,6 +89,7 @@ const NavBar = () => {
       </div>
       {/* mobile menu (only show on small screens) */}
       <div
+        ref={ref}
         className={`absolute left-0 z-10 p-2 mx-2 border bg-background ${
           showMenu ? "block" : "hidden"
         } sm:hidden`}
@@ -94,6 +98,7 @@ const NavBar = () => {
           {navigation.map((item) => (
             <NavLink
               key={item.name}
+              onClick={() => setShowMenu(false)}
               to={item.href}
               className={({ isActive }) => {
                 const base =
