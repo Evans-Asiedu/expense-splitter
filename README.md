@@ -1,69 +1,102 @@
-# React + TypeScript + Vite
+# 💰 Expense Splitter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An intuitive web application built with **React + Vite + TypeScript** that helps users easily split expenses among group members.  
+The app allows users to create groups, add participants, log shared expenses, and view how much each member owes or is owed — all with a clean, responsive interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 👥 Create and manage groups  
+- 🧾 Add, edit, and delete expenses per group  
+- 💸 Automatically calculate how much each participant owes  
+- 💾 Data persistence using **localStorage**  
+- 🧭 Smooth client-side navigation with **React Router DOM**  
+- 🌐 SEO optimization with **React Helmet**  
+- ⚡️ Fast and lightweight build powered by **Vite**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+| Category | Technology |
+|-----------|-------------|
+| Framework | [React](https://reactjs.org/) + [Vite](https://vitejs.dev/) |
+| Language | [TypeScript](https://www.typescriptlang.org/) |
+| Routing | [React Router DOM](https://reactrouter.com/) |
+| SEO | [React Helmet](https://www.npmjs.com/package/react-helmet) |
+| State & Data | React Hooks + Local Storage |
+| Styling | CSS / TailwindCSS *(if used)* |
+| Build Tool | Vite |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Folder Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+src/
+│
+├── components/ # Reusable UI components
+├── pages/ # Route-based pages
+├── models/ # TypeScript interfaces & types
+├── services/ # Business logic & data persistence (CRUD + localStorage)
+├── data/ # Default seed data
+├── routes/ # App routing setup
+├── App.tsx # Root component
+├── main.tsx # Entry point
+└── index.css # Global styles
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/expense-splitter.git
+cd expense-splitter
+
+### 2. Install dependencies
+npm install
+
+### 3. Start the development server
+npm run dev
+
+### 4. Open in your browser
+Visit: http://localhost:5173
+
+
+🧮 Example Use Case
+
+Create a group called “Weekend Trip”
+
+Add participants — e.g., Alice, Bob, and Carol
+
+Log expenses such as hotel, food, fuel
+
+Instantly view how much each person owes or should be reimbursed.
+
+
+🧠 Code Highlights
+
+Clean and modular TypeScript structure
+
+CRUD operations for groups and expenses
+
+Auto-save and restore state from localStorage
+
+SEO-friendly meta tags managed with React Helmet
+
+
+📈 Future Improvements
+
+🪙 Add currency selection
+
+☁️ Sync with backend or cloud storage
+
+📊 Add summary charts or reports
+
+📱 Improve mobile UI with animations
+
+
+
