@@ -5,6 +5,7 @@ import type { Group } from "../../models/GroupModels";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getGroupById } from "../../services/GroupService";
+import SEO from "../SEO";
 
 const GroupDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,6 +24,9 @@ const GroupDetailsPage = () => {
 
   return (
     <div className="w-5/6 mx-auto mt-3">
+      {/* ADD SEO metadata */}
+      <SEO title={`${name} | Expense Splitter `} description={description} />
+
       <div className="flex justify-between">
         <Header title={name} />
         <Button

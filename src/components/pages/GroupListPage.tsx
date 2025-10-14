@@ -6,6 +6,7 @@ import type { Group } from "../../models/GroupModels";
 import GroupList from "../GroupList";
 import ConfirmDialog from "../ConfirmDialog";
 import { Modal } from "../Modal";
+import SEO from "../SEO";
 
 const GroupListPage = () => {
   const [groups, setGroups] = useState<Group[]>([]);
@@ -60,6 +61,11 @@ const GroupListPage = () => {
 
   return (
     <div className="w-5/6 mx-auto">
+      <SEO
+        title="My Groups | Expense Splitter"
+        description="View and manage all your expense groups in one place. Track shared spending, balances, and contributions with your friends or teams."
+      />
+
       <Header title="Your Groups" />
       <SearchBar value={searchQuery} onChange={handleSearch} />
       <GroupList groups={filteredGroups} onDeleteGroupItem={onDeleteCall} />

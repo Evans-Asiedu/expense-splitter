@@ -14,12 +14,14 @@
     "font-awesome": "^4.7.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^7.9.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
+    "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.33.0",

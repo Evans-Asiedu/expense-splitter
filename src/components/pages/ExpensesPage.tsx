@@ -11,6 +11,7 @@ import ExpenseForm from "../ExpenseForm";
 import type { ExpenseData } from "../ExpenseForm";
 import ConfirmDialog from "../ConfirmDialog";
 import { Modal } from "../Modal";
+// import SEO from "../SEO";
 
 interface Props {
   groupId: string;
@@ -61,11 +62,6 @@ const ExpensesPage = ({ groupId }: Props) => {
   const handleFormClose = () => {
     setIsFormOpen(false);
     setSelectedExpenseId("");
-    // setFadeClass("fade-out");
-    // setTimeout(() => {
-    //   setIsFormOpen(false);
-    //   setSelectedExpenseId("");
-    // }, 300);
   };
 
   const handleDeleteExpense = (expenseId: string) => {
@@ -93,6 +89,7 @@ const ExpensesPage = ({ groupId }: Props) => {
     <div>
       {expenses.map((expense) => (
         <ExpenseCard
+          key={expense.id}
           expense={expense}
           onEdit={showForm}
           onDelete={showConfirmDialog}
