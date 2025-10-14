@@ -29,7 +29,7 @@ const ParticipantListPage = ({ groupId }: Props) => {
   const [data, setData] = useState<Participant>({
     id: Date.now().toString(),
     name: "",
-    overallPercentageContribution: 0,
+    overallPercentageContribution: "",
     totalAmountPaid: 0,
     totalAmountToPay: 0,
     overallStatus: "settled",

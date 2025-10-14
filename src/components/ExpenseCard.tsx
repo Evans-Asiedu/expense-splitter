@@ -13,7 +13,6 @@ const ExpenseCard = ({ expense, onEdit, onDelete, selectedId }: Props) => {
   console.log(selectedId);
   const { id, description, amount, date, expenseParticipants } = expense;
 
-  /* hover:border-0 border-accent-txt hover:bg-secondary hover:cursor-pointer  */
   return (
     <div className="p-1 sm:px-3 sm:py-1.5 hover:cursor-pointer hover:bg-secondary hover:rounded-xl mb-2">
       <div className="flex gap-3 justify-between items-center ">

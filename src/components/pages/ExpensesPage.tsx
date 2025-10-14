@@ -47,7 +47,8 @@ const ExpensesPage = ({ groupId }: Props) => {
 
   const handleSubmit = (expense: ExpenseData) => {
     // handling new expenses or edit
-    console.log("expense:", expense);
+
+    //console.log("expense:", expense);
 
     setExpenses((prev) =>
       prev.some((e) => e.id === expense.id)
@@ -74,7 +75,7 @@ const ExpensesPage = ({ groupId }: Props) => {
     try {
       deleteExpense(groupId, expenseId);
     } catch (error: unknown) {
-      console.log(error); // need to be look at
+      console.log(error);
 
       setExpenses(expenses);
     }

@@ -14,7 +14,6 @@ const NavBar = () => {
     { name: "Home", href: "/", current: false },
     { name: "Groups", href: "/groups", current: false },
     // { name: "Analytics", href: "/analytics", current: false },
-    // { name: "New Group", href: "/add-group", current: true },
   ];
 
   const handleFormOpen = () => {

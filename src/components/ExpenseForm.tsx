@@ -34,8 +34,6 @@ interface Props {
 }
 
 const ExpenseForm = ({ onSubmit, onClose, expense }: Props) => {
-  //console.log(groupId);
-
   const [formData, setFormData] = useState<ExpenseData>({
     id: "",
     name: "",
