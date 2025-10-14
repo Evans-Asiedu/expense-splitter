@@ -4,13 +4,13 @@
 It allows users to create groups, add participants, record expenses, and automatically calculate each participant’s share.  
 The app also supports **localStorage persistence**, ensuring your data stays available even after refreshing the page.
 
----
 
 ## 🌐 Live Demo
 
-🔗 [View Live Demo](https://expense-splitter-blue.vercel.app/)
+<p align="left">
+  🔗 <a href="https://expense-splitter-blue.vercel.app/" target="_blank" rel="noopener noreferrer">View Live Demo</a>
+</p>
 
----
 
 ## 🚀 Features
 
@@ -22,7 +22,6 @@ The app also supports **localStorage persistence**, ensuring your data stays ava
 - ⚙️ **React Router DOM** for navigation
 - 🧠 **React Helmet** for SEO optimization
 
----
 
 ## 🏗️ Tech Stack
 
@@ -33,7 +32,6 @@ The app also supports **localStorage persistence**, ensuring your data stays ava
 - **Storage:** LocalStorage API
 - **Styling:** CSS / Bootstrap / TailwindCSS (if applicable)
 
----
 
 ## 📂 Project Structure
 
@@ -51,7 +49,6 @@ src/
 └── index.css     # Global styles
 ```
 
----
 
 ## ⚙️ Installation & Setup
 
@@ -79,8 +76,6 @@ src/
    http://localhost:5173
    ```
 
----
-
 ## 🧠 How It Works
 
 1. Create a new group and add participants.
@@ -88,30 +83,21 @@ src/
 3. The app automatically calculates totals and balances.
 4. All data is stored in **localStorage**, so it persists across sessions.
 
----
 
-## 🧩 Example Features in Code
+## 🧩 Example Use Case 
 
-- **CRUD Operations:** Defined in `services/ExpenseService.ts` and `GroupService.ts`
-- **LocalStorage Sync:** Automatically saves changes to local storage when data updates
-- **Type Safety:** Ensured by models in the `models/` directory
+1. Create a group called **"Weekend Trip"**.
+2. Add participants -- e.g., _Alice, Bob, and Carol_
+3. Log expenses such as _hotel, food, fuel_
+4. Instantly view how much each person owes or should be reimbursed
 
----
 
-## 🌐 SEO Configuration
+## 🌐 Future Improvements
 
-This project uses **React Helmet** for dynamic page titles and metadata:
+- 🪙 Add currency selection
+- ☁️ Sync with backend or cloud storage
+- 📊 Add summary charts or reports
 
-```tsx
-import { Helmet } from "react-helmet";
-
-<Helmet>
-  <title>Expense Splitter | Group Overview</title>
-  <meta name="description" content="Track and split group expenses easily" />
-</Helmet>;
-```
-
----
 
 ## 🧰 Scripts
 
@@ -121,4 +107,3 @@ import { Helmet } from "react-helmet";
 | `npm run build`   | Build for production     |
 | `npm run preview` | Preview production build |
 
----
