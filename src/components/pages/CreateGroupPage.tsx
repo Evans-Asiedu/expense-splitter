@@ -10,7 +10,7 @@ const CreateGroupPage = ({ onClose }: Props) => {
   return (
     <div className="p-4 border-1 bg-secondary-txt rounded-md">
       <SEO
-        title="Create a New Group | Expense Splitter"
+        title="Create a New Group"
         description="Start a new expense group to easily split bills and track shared costs. Invite friends, set budgets, and keep spending transparent."
         keywords="create expense group, start group, split bills, shared expenses, expense tracker app"
       />

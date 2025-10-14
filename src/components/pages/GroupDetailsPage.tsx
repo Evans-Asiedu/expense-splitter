@@ -25,7 +25,7 @@ const GroupDetailsPage = () => {
   return (
     <div className="w-5/6 mx-auto mt-3">
       {/* ADD SEO metadata */}
-      <SEO title={`${name} | Expense Splitter `} description={description} />
+      <SEO title={`${name}`} description={description} />
 
       <div className="flex justify-between">
         <Header title={name} />

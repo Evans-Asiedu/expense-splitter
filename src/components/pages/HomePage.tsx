@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div>
       <SEO
-        title="Home | Expense Splitter"
+        title="Home"
         description="Manage, track, and split expenses easily with Expense Splitter."
       />
       <Banner />

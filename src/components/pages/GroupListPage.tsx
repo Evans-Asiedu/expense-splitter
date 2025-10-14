@@ -62,7 +62,7 @@ const GroupListPage = () => {
   return (
     <div className="w-5/6 mx-auto">
       <SEO
-        title="My Groups | Expense Splitter"
+        title="My Groups"
         description="View and manage all your expense groups in one place. Track shared spending, balances, and contributions with your friends or teams."
       />
 
