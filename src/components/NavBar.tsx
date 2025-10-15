@@ -13,7 +13,7 @@ const NavBar = () => {
   const navigation = [
     { name: "Home", href: "/", current: false },
     { name: "Groups", href: "/groups", current: false },
-    // { name: "Analytics", href: "/analytics", current: false },
+    { name: "Analytics", href: "/analytics", current: false },
   ];
 
   const handleFormOpen = () => {

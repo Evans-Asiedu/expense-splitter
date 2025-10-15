@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import GroupDetailsPage from "./components/pages/GroupDetailsPage";
 import GroupListPage from "./components/pages/GroupListPage";
 import HomePage from "./components/pages/HomePage";
+import AnalyticsPage from "./components/pages/AnalyticsPage";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
       <Routes location={location}>
         <Route path="/" element={<HomePage />} />
         <Route path="/groups" element={<GroupListPage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
         <Route path="/groups/:id" element={<GroupDetailsPage />} />
       </Routes>
     </div>
