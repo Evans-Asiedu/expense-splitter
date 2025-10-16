@@ -3,11 +3,13 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import "font-awesome/css/font-awesome.css";
+import { GroupProvider } from "./context/GroupContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   // <StrictMode>
   //   <App />
   // </StrictMode>
-
-  <App />
+  <GroupProvider>
+    <App />
+  </GroupProvider>
 );
