@@ -4,7 +4,7 @@ import type { Participant } from "./../models/GroupModels";
 // READ
 export function getParticipants(groupId: string): Participant[] {
   const group = groups.find((g) => g.id === groupId);
-  return group ? [...group.participantList] : [];
+  return group ? [...group.participants] : [];
 }
 
 export function getParticipant(
@@ -12,7 +12,7 @@ export function getParticipant(
   participantId: string
 ): Participant | undefined {
   const group = groups.find((g) => g.id === groupId);
-  return group?.participantList.find((p) => p.id === participantId);
+  return group?.participants.find((p) => p.id === participantId);
 }
 
 // CREATE
@@ -24,7 +24,7 @@ export function addParticipant(
   if (!group) return null;
 
   const newParticipant: Participant = { ...participant };
-  group.participantList.push(newParticipant);
+  group.participants.push(newParticipant);
   return newParticipant;
 }
 
@@ -37,7 +37,7 @@ export function updateParticipant(
   const group = groups.find((g) => g.id === groupId);
   if (!group) return null;
 
-  const participant = group.participantList.find((p) => p.id === participantId);
+  const participant = group.participants.find((p) => p.id === participantId);
   if (!participant) return null;
 
   Object.assign(participant, updatedParticipant);
@@ -52,9 +52,9 @@ export function deleteParticipant(
   const group = groups.find((g) => g.id === groupId);
   if (!group) return false;
 
-  const index = group.participantList.findIndex((p) => p.id === participantId);
+  const index = group.participants.findIndex((p) => p.id === participantId);
   if (index === -1) return false;
 
-  group.participantList.splice(index, 1);
+  group.participants.splice(index, 1);
   return true;
 }
