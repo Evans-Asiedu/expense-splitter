@@ -1,26 +1,19 @@
 import Header from "../Header";
 import Button from "../Button";
 import TabView from "../TabView";
-import type { Group } from "../../models/GroupModels";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getGroupById } from "../../services/GroupService";
 import SEO from "../SEO";
+import { useGroups } from "../../context/GroupContext";
 
 const GroupDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
-  const [group, setGroup] = useState<Group | null>(null);
+  const { getGroupById } = useGroups();
 
-  useEffect(() => {
-    if (id) {
-      const foundGroup = getGroupById(id);
-      setGroup(foundGroup);
-    }
-  }, [id]);
+  const foundGroup = id ? getGroupById(id) : null;
 
-  if (!group) return <p>Loading...</p>;
+  if (!foundGroup) return <p>Loading...</p>;
 
-  const { name, description, budget } = group;
+  const { name, description, budget } = foundGroup;
 
   return (
     <div className="w-5/6 mx-auto mt-3">
@@ -47,7 +40,7 @@ const GroupDetailsPage = () => {
         </div>
       </div>
       <div className="mt-3">
-        <TabView groupId={group.id} />
+        <TabView groupId={foundGroup.id} />
       </div>
     </div>
   );

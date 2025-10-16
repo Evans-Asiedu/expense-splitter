@@ -1,30 +1,27 @@
 import { useEffect, useState } from "react";
 import type { Expense } from "../../models/GroupModels";
 import ExpenseCard from "../ExpenseCard";
-import {
-  deleteExpense,
-  getExpenses,
-  saveExpense,
-} from "../../services/ExpenseService";
 import Button from "../Button";
 import ExpenseForm from "../ExpenseForm";
 import type { ExpenseData } from "../ExpenseForm";
 import ConfirmDialog from "../ConfirmDialog";
 import { Modal } from "../Modal";
-// import SEO from "../SEO";
+import { useGroups } from "../../context/GroupContext";
 
 interface Props {
   groupId: string;
 }
 
 const ExpensesPage = ({ groupId }: Props) => {
-  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] =
     useState<boolean>(false);
   const [expense, setExpense] = useState<Expense | null>(null);
   const [selectedExpenseId, setSelectedExpenseId] = useState<string>("");
-  // const [fadeClass, setFadeClass] = useState("fade-in");
+
+  const { getExpenses, saveExpense, deleteExpense } = useGroups();
+
+  const expenses = groupId ? getExpenses(groupId) : [];
 
   const showForm = (expenseId: string | null) => {
     if (expenseId === null) {
@@ -35,7 +32,9 @@ const ExpensesPage = ({ groupId }: Props) => {
 
     setIsFormOpen(true);
 
-    const currentExpense = expenses.find((e) => e.id === expenseId);
+    const currentExpense = expenses
+      ? expenses.find((e) => e.id === expenseId)
+      : null;
     setExpense(currentExpense ?? null);
     setSelectedExpenseId(expenseId);
   };
@@ -46,17 +45,6 @@ const ExpensesPage = ({ groupId }: Props) => {
   };
 
   const handleSubmit = (expense: ExpenseData) => {
-    // handling new expenses or edit
-
-    //console.log("expense:", expense);
-
-    setExpenses((prev) =>
-      prev.some((e) => e.id === expense.id)
-        ? prev.map((e) => (e.id === expense.id ? expense : e))
-        : [...prev, expense]
-    );
-
-    // save expense it to database;
     saveExpense(groupId, expense);
   };
 
@@ -66,25 +54,15 @@ const ExpensesPage = ({ groupId }: Props) => {
   };
 
   const handleDeleteExpense = (expenseId: string) => {
-    // remove expense from list of expenses
-    const updatedExpenses = expenses.filter((e) => e.id !== expenseId);
-    setExpenses(updatedExpenses);
+    deleteExpense(groupId, expenseId);
     setIsConfirmDialogOpen(false);
-
-    // remove expense from db & save
-    try {
-      deleteExpense(groupId, expenseId);
-    } catch (error: unknown) {
-      console.log(error);
-
-      setExpenses(expenses);
-    }
   };
 
   useEffect(() => {
-    // get expense from data base;
-    setExpenses(getExpenses(groupId));
-  }, [groupId]);
+    console.log("expenses", getExpenses(groupId));
+  });
+
+  if (!expenses) return <p>Loading...</p>;
 
   return (
     <div>

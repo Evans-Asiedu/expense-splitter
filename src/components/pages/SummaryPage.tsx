@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
-import type { Expense } from "../../models/GroupModels";
-import { getExpenses } from "../../services/ExpenseService";
+import { useState } from "react";
+// import type { Expense } from "../../models/GroupModels";
+// import { getExpenses } from "../../services/ExpenseService";
 import SummaryCard from "../SummaryCard";
+import { useGroups } from "../../context/GroupContext";
 
 interface Props {
   groupId: string;
 }
 
 const SummaryPage = ({ groupId }: Props) => {
-  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [openId, setOpenId] = useState<string | null>(null);
+  const { getExpenses } = useGroups();
 
   const handleToggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
 
-  useEffect(() => {
-    setExpenses(getExpenses(groupId));
-  }, [groupId]);
+  const expenses = groupId ? getExpenses(groupId) : [];
+
+  if (!expenses) return <p>Loading...</p>;
 
   return (
     <div>
