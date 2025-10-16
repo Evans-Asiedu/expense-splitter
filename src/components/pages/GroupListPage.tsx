@@ -1,27 +1,19 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../SearchBar";
 import Header from "../Header";
-import { deleteGroup, getGroups } from "../../services/GroupService";
-import type { Group } from "../../models/GroupModels";
 import GroupList from "../GroupList";
 import ConfirmDialog from "../ConfirmDialog";
 import { Modal } from "../Modal";
 import SEO from "../SEO";
+import { useGroups } from "../../context/GroupContext";
 
 const GroupListPage = () => {
-  const [groups, setGroups] = useState<Group[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] =
     useState<boolean>(false);
   const [groupId, setGroupId] = useState<string>("");
-
-  useState<boolean>(false);
-
-  useEffect(() => {
-    const data = getGroups();
-    setGroups(data);
-  }, []);
+  const { deleteGroup, groups } = useGroups();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -46,17 +38,11 @@ const GroupListPage = () => {
   const onDeleteCall = (groupId: string) => {
     setIsConfirmDialogOpen(true);
     setGroupId(groupId);
-    console.log(groupId);
   };
 
   const handleConfirmDelete = () => {
-    console.log("delete confirm");
-    const updatedGroups = groups.filter((g) => g.id !== groupId);
-    setGroups(updatedGroups);
-    setIsConfirmDialogOpen(false);
-
-    // remove group from database
     deleteGroup(groupId);
+    setIsConfirmDialogOpen(false);
   };
 
   return (
