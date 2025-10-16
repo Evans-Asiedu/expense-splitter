@@ -11,36 +11,34 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import type { Group } from "../../models/GroupModels";
-import { getGroups } from "../../services/GroupService";
+import { useGroups } from "../../context/GroupContext";
 
 import SEO from "../SEO";
 
 const COLORS = ["#2563EB", "#22C55E", "#F59E0B", "#EF4444", "#8B5CF6"];
 
 const AnalyticsPage = () => {
-  const [groups, setGroups] = useState<Group[]>([]);
   const [totalExpenses, setTotalExpenses] = useState<number>(0);
   const [numberOfExpenses, setNumberOfExpenses] = useState<number>(0);
   const [averageExpense, setAverageExpense] = useState<number>(0);
+  const { groups } = useGroups();
 
   useEffect(() => {
-    const allGroups = getGroups();
-    setGroups(allGroups);
+    const allGroups = groups;
 
-    const allExpenses = allGroups.flatMap((g) => g.expenseList);
+    const allExpenses = allGroups.flatMap((g) => g.expenses);
     const totalExp = allExpenses.reduce((sum, e) => sum + e.amount, 0);
     const avgExp = allGroups.length ? totalExp / allGroups.length : 0;
 
     setTotalExpenses(totalExp);
     setNumberOfExpenses(allExpenses.length);
     setAverageExpense(avgExp);
-  }, []);
+  }, [groups]);
 
   // Chart data
   const expenseData = groups.map((g) => ({
     name: g.name,
-    total: g.expenseList.reduce((sum, e) => sum + e.amount, 0),
+    total: g.expenses.reduce((sum, e) => sum + e.amount, 0),
   }));
 
   return (
