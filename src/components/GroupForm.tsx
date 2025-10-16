@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { saveGroup } from "../services/GroupService";
 import type { Expense, Participant, Receipt } from "../models/GroupModels";
 import { useNavigate } from "react-router-dom";
+import { useGroups } from "../context/GroupContext";
 
 type GroupData = {
   id: string;
@@ -12,9 +12,9 @@ type GroupData = {
   totalExpenses: number;
   expensesCount: number;
   imageUrl: string;
-  participantList: Participant[];
-  expenseList: Expense[];
-  receiptList: Receipt[];
+  participants: Participant[];
+  expenses: Expense[];
+  receipts: Receipt[];
 };
 
 type errorData = {
@@ -34,9 +34,9 @@ const GroupForm = ({ onClose }: Props) => {
     id: Date.now().toString(),
     totalExpenses: 0,
     expensesCount: 0,
-    participantList: [],
-    expenseList: [],
-    receiptList: [],
+    participants: [],
+    expenses: [],
+    receipts: [],
     imageUrl:
       "https://cdn.usegalileo.ai/stability/729e7a19-9450-4e5a-a795-fb4ccb57f91a.png",
   });
@@ -53,6 +53,8 @@ const GroupForm = ({ onClose }: Props) => {
     { value: "AUD" },
     { value: "CAD" },
   ];
+
+  const { addGroup } = useGroups();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,8 +86,9 @@ const GroupForm = ({ onClose }: Props) => {
     setError({ name: "", message: "" }); // clear any errors
 
     console.log("Form submitted", data);
-    // TODO: send data to state management
-    saveGroup(data);
+
+    addGroup(data);
+    onClose();
     navigateTo(`/groups`);
   };
 
