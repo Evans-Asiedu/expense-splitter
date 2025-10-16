@@ -45,7 +45,7 @@ export interface Group {
   totalExpenses: number;
   expensesCount: number;
   imageUrl: string;
-  participantList: Participant[];
-  expenseList: Expense[];
-  receiptList: Receipt[];
+  participants: Participant[];
+  expenses: Expense[];
+  receipts: Receipt[];
 }
